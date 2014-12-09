@@ -237,6 +237,34 @@ float: right;
 position: relative;
 right: -18px;
 }
+
+.wikipedia_button{
+	height: 27.2px;
+}
+
+.wikipedia_button img{
+	width: 28px;
+	height: 27.2px;
+}
+
+.main-data{
+	visibility:hidden;
+}
+
+.main-data .synopsis .learn-more,
+.main-data .synopsis .highlights-text{
+	display:none;
+}
+
+.main-data.point-selected .synopsis .learn-more,
+.main-data.point-selected .synopsis .highlights-text{
+	display:block;
+}
+
+.main-data.point-selected .synopsis .syn-text{
+	display:none;
+}
+}
  
  
  /*********timeline**********/
