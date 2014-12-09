@@ -59,7 +59,7 @@ html {
 
 .main-wrapper {
     width: 80%;
-    height: 100%;
+    height: 574px;
     margin: auto;
     /*box-shadow: 5px 5px 5px 5px;*/
     padding-top: 30px;
@@ -124,6 +124,7 @@ header {
     width: 100%;
     height: 100%;
     position: relative;
+    display: none;
 }
 .x-button{
   background-image: url('images/x.png');
@@ -202,6 +203,19 @@ overflow: hidden;
 margin-bottom: 5px;
 margin-top: 2px;
 }
+ .play{background-image: url('images/play.png');
+background-repeat: no-repeat;
+background-size: 100%;
+width: 88px;
+height: 92px;
+/* display: inline-block; */
+/* margin-top: 100px; */
+margin-left: 30px;
+/* float: right; */
+position: absolute;
+right: 50px;
+top: 131px;
+ }
 .value-name{
     font-size: 51px;
 text-shadow: 2px 2px #000;
@@ -216,11 +230,12 @@ font-family: MyriadPro-BoldIt;
 }
 
 .footer{
-   BOTTOM: 0;
+  BOTTOM: 0;
 position: absolute;
 height: 159px;
 width: 100%;
-position: relative;
+position: absolute;
+
 }
 .main-data-footer{
    width: 500px;
@@ -235,7 +250,11 @@ width: 204px;
 height: 88px;
 float: right;
 position: relative;
-right: -18px;
+right: 41px;
+
+/*transition: visibility 0.1s linear,opacity 0.3s linear;
+visibility: visible;
+opacity: 1;*/
 }
 
 .wikipedia_button{
@@ -247,9 +266,7 @@ right: -18px;
 	height: 27.2px;
 }
 
-.main-data{
-	visibility:hidden;
-}
+
 
 .main-data .synopsis .learn-more,
 .main-data .synopsis .highlights-text{
@@ -326,11 +343,12 @@ top: 0;
 right: 0;
  }
  input{
-   border: none;
+ border: none;
 position: relative;
-top: 76px;
-left: 37px;
-width: 153px;
+top: 80px;
+left: 40px;
+width: 135px;
+background-color: transparent;
  }
  .options{
      
