@@ -62,10 +62,21 @@
                     </div>
                     <div class="hand"></div>
                     <div class="timeline">
-                        <div class="dot"></div>
+						<?php
+							$start= $row["start"]; 
+							$end= $row["end"]; 
+							$ImportantDate= $row["ImportantDate"]; 
+							$now=2015;
+							$startPrecent=0*100;
+							$endPrecent=($end-$start)/($now-$start)*100;
+							$importantDate=($ImportantDate-$start)/($now-$start)*100;
+						?>		
+                        <div class="dot dot_start" style="left:<?php echo $startPrecent; ?>%"><div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
+                        <div class="dot dot_import" style="left:<?php echo $importantDate; ?>%"><div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
+                        <div class="dot dot_end" style="left:<?php echo $endPrecent; ?>%"><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
                         <div style="padding-left: 20px;">
-                            <div class="line"></div>
-                            <div class="pink"></div>
+                            <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
+                            <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>
                         </div>
                     </div>
                 </div>
@@ -73,12 +84,7 @@
 
             </div>
 
-            <div id="sidebar">
-				<?php
-					$start= $row["start"]; 
-					$end= $row["end"]; 
-					$ImportantDate= $row["ImportantDate"]; 
-				?>					
+            <div id="sidebar">			
                 <div class="x" onclick="hideSidebar()"></div>
                 <input class="search" type="text" />
                 <div class="options">

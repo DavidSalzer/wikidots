@@ -338,3 +338,11 @@ width: 153px;
  .option-item{
      font-family: MyriadPro;
  }
+ 
+ .dot .dot_discription{
+	display:none;
+ } 
+ 
+ .dot:hover .dot_discription{
+	display:block;
+ }
