@@ -80,7 +80,7 @@ html {
     left: 0;
     right: 0;
     background-repeat: no-repeat;
-    background-position-y: -203px;
+    background-position-y: 10%; /*-203px;*/
 }
 
 header {
