@@ -29,7 +29,7 @@
         <div class="main-wrapper">
             <header>
                 <div class="logo"></div>
-                <div class="menu"></div>
+                <div class="menu" onclick="showSidebar()"></div>
             </header>
             <div class="main-data-wrapper">
                 <div class="main-data">

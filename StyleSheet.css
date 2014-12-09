@@ -313,7 +313,9 @@ top: 0;
 background-image: url('images/sidepanel.png');
 background-size: 100%;
 
-
+transition: visibility 0.1s linear,opacity 0.3s linear;
+visibility: hidden;
+opacity: 0;
         
  }
  .x{
