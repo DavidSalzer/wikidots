@@ -51,7 +51,9 @@ if ($row==null)
                         <div class="desc-name"><?php echo $row["Description"]; ?></div>
                     </div>
                     <div class="hand"></div>
-                
+                    <div class="timeline">
+                        <div class="dot"></div>
+                    </div>
                 </div>
             </div>
         </div>
