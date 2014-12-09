@@ -52,6 +52,9 @@
 							<?php endif ?>
 						<?php endfor ?>
                     </div>
+                    <div class="play">
+                    
+                    </div>
                 </div>
 
                 <div class="footer">
