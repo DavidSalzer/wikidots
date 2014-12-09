@@ -20,6 +20,8 @@ if ($row==null)
     <head>
         <meta charset="utf-8" />
         <title>Wikidots</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="script.js"></script>
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
@@ -34,7 +36,8 @@ if ($row==null)
                     <div class="x-button"></div>
                     <div class="synopsis">
                         <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
-                        <span class="learn-more">LEARN MORE</span>
+						<div class="highlights-text"></div>
+                        <a class="learn-more">LEARN MORE</a>
                     </div>
                     <div class="highlights-wrapper">
 						<?php for($i=1;$i<=7;$i++): ?>
@@ -53,8 +56,8 @@ if ($row==null)
 
                 <div class="footer">
                     <div class="main-data-footer">
-                        <div class="value-name"><?php echo $row["valueName"]; ?></div>
-						<a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" target="_blank">[read more]</a>
+                        <div class="value-name"><?php echo $row["valueName"]; ?><a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" class="wikipedia_button" target="_blank"><img src="images/wikipedia_button.png" /></a>
+						</div>
                         <div class="desc-name"><?php echo $row["Description"]; ?></div>
                     </div>
                     <div class="hand"></div>
