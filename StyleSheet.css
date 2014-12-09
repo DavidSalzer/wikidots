@@ -1,0 +1,161 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    overflow: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-wrapper {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    /*box-shadow: 5px 5px 5px 5px;*/
+    padding-top: 30px;
+    overflow: hidden;
+    background-size: contain;
+    position: relative;
+}
+
+.main-background {
+    width: 100%;
+    height: 800px;
+    margin: auto;
+    overflow: hidden;
+    background-size: cover;
+    background-image: url('images/background.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position-y: -203px;
+}
+
+header {
+    width: 100%;
+    height: 30px;
+}
+
+.logo {
+    width: 123px;
+    height: 55px;
+    float: left;
+    background-image: url('images/wikidots logo.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-left: 30px;
+}
+
+.menu {
+    width: 27px;
+    height: 30px;
+    float: right;
+    background-image: url('images/nav burger.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: 30px;
+}
+
+.main-data-wrapper {
+    width: 100%;
+    height: 344px;
+    margin: auto;
+    margin-top: 4%;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* margin: auto; */
+    box-sizing: border-box;
+}
+
+.main-data {
+    background-color: rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.x-button{
+  background-image: url('images/x.png');
+background-repeat: no-repeat;
+background-size: 100%;
+width: 38px;
+height: 37px;
+margin: 7px;
+/* float: right; */
+position: absolute;
+right: 0;
+}
+.synopsis{
+  box-shadow: 10px 18px 21px 0.00px rgba(1, 1, 1, 0.43);
+width: 342px;
+height: 258px;
+background-color: white;
+text-align: left;
+font-family: OpenSans;
+color: #000000;
+font-size: 17px;
+font-weight: 400;
+line-height: 22px;
+overflow: hidden;
+padding: 7px 10px;
+display: inline-block;
+top: 0;
+vertical-align: top;
+margin-top: 30px;
+}
+.highlights-wrapper
+{
+  width: 422px;
+height: 100px;
+margin-left: 17px;
+display: inline-block;
+vertical-align: top;
+margin-top: 48px;
+}
+
+.highlights-item{
+   width: 90px;
+
+display: inline-block;
+margin-right: 10px;
+cursor: pointer;
+}
+.high-img{
+ width: 90px;
+height: 90px;
+border-radius: 23px;
+background-color: black;
+border: 2px solid white;
+background-size: 100%;
+background-size: cover;
+}
+.high-title{
+    font-size: 12px;
+color: white;
+text-align: center;
+height: 32px;
+overflow: hidden;
+margin-bottom: 5px;
+margin-top: 2px;
+}
+.value-name{
+    font-size: 51px;
+text-shadow: 2px 2px #000;
+color: white;
+}
+.desc-name{
+    font-size: 20px;
+color: white;
+text-shadow: 2px 2px #000;
+}
+
+.footer{
+    BOTTOM: 0;
+position: absolute;
+height: 159px;
+}
