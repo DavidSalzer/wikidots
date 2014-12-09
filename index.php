@@ -39,7 +39,13 @@ if ($row==null)
                     <div class="highlights-wrapper">
 						<?php for($i=1;$i<=7;$i++): ?>
 							<?php if ($row["p_name".$i]!=null & $row["p_name".$i]!=""): ?>
-								<div class="highlights-item"><div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div><div class="high-title"><?php echo $row["p_name".$i]; ?></div></div>
+								<div class="highlights-item" 
+										data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>"
+										data-id="<?php echo htmlspecialchars($row["p_valueID".$i], ENT_QUOTES);?>"
+								>
+									<div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div>
+									<div class="high-title"><?php echo $row["p_name".$i]; ?></div>
+								</div>
 							<?php endif ?>
 						<?php endfor ?>
                     </div>
@@ -48,6 +54,7 @@ if ($row==null)
                 <div class="footer">
                     <div class="main-data-footer">
                         <div class="value-name"><?php echo $row["valueName"]; ?></div>
+						<a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" target="_blank">[read more]</a>
                         <div class="desc-name"><?php echo $row["Description"]; ?></div>
                     </div>
                     <div class="hand"></div>
