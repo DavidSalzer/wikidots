@@ -20,7 +20,7 @@
                 <div class="main-data">
                     <div class="x-button"></div>
                     <div class="synopsis">
-                        <span>He developed the genera theory.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap int</span>
+                        <div class="syn-text">He developed the genera theory.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap int</div>
                         <span class="learn-more">LEARN MORE</span>
                     </div>
                     <div class="highlights-wrapper">
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="footer">
-                    <div class="main-data">
+                    <div class="main-data-footer">
                         <div class="value-name">Albert Einstein</div>
                         <div class="desc-name">Theoretical physicist and philosopher</div>
                     </div>
