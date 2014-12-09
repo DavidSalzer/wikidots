@@ -18,9 +18,11 @@ $(function(){
 			$(".main-data").addClass("point-selected");
 			$selectedHighlights.addClass("selected");
 			$(".main-data.point-selected .synopsis .highlights-text").html($selectedHighlights.attr("data-description"));
-			$(".main-data.point-selected .learn-more").attr("href","?id="+$selectedHighlights.attr("id"));
+			$(".main-data.point-selected .learn-more").attr("href","?id="+$selectedHighlights.attr("data-id"));
 		}
 	})
+	
+
 	
 	
 

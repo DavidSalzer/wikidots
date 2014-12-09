@@ -74,6 +74,11 @@
             </div>
 
             <div id="sidebar">
+				<?php
+					$start= $row["start"]; 
+					$end= $row["end"]; 
+					$ImportantDate= $row["ImportantDate"]; 
+				?>					
                 <div class="x" onclick="hideSidebar()"></div>
                 <input class="search" type="text" />
                 <div class="options">
