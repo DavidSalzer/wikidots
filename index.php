@@ -33,7 +33,7 @@ if ($row==null)
                 <div class="main-data">
                     <div class="x-button"></div>
                     <div class="synopsis">
-                        <span><?php echo $row["synopsis"]; ?></span>
+                        <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
                         <span class="learn-more">LEARN MORE</span>
                     </div>
                     <div class="highlights-wrapper">
@@ -46,7 +46,7 @@ if ($row==null)
                 </div>
 
                 <div class="footer">
-                    <div class="main-data">
+                    <div class="main-data-footer">
                         <div class="value-name"><?php echo $row["valueName"]; ?></div>
                         <div class="desc-name"><?php echo $row["Description"]; ?></div>
                     </div>
