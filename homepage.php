@@ -15,7 +15,7 @@
         <a href="index.php?id=Albert_Einstein">
         
         
-        <div class="homepage" style="background-image: url('images/home.jpg')">
+        <div class="homepage" style="background-image: url('images/homepage.png')">
         
         </div></a>
     </body>
