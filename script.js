@@ -28,12 +28,23 @@ $(function () {
     })
 	
 	$( ".search" ).autocomplete({
-		source: valuesName
+		source: valuesName,
+		close: searchChange
 	});
 	
-	$(".search-form").submit(function(){
-		alert($( ".search" ).val());
-	})
+	$(".search-form").submit(searchChange);
+	
+	function searchChange(){
+		var valueName=$( ".search" ).val();
+		var valueID=null;
+		values.forEach(function(element){
+			if (valueName==element.valueName)
+				valueID=element.valueID;
+		});
+		window.location = "/?id="+valueID;
+		
+		return false;
+	}
 
 
 
