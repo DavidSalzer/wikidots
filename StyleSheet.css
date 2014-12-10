@@ -59,7 +59,7 @@ html {
 
 .main-wrapper {
     width: 80%;
-    height: 574px;
+    height: 100%;
     margin: auto;
     /*box-shadow: 5px 5px 5px 5px;*/
     padding-top: 30px;
@@ -245,9 +245,10 @@ font-family: MyriadPro-BoldIt;
 }
 
 .footer{
-  BOTTOM: 0;
+ 
 position: absolute;
-height: 172px;
+bottom: 0;
+height: 205px;
 width: 100%;
 position: absolute;
 padding-left: 36px;
@@ -281,8 +282,8 @@ height: 65px;
 float: right;
 right: -49px;
 position: relative;
-
 display: none;
+
  }
 
 .wikipedia_button{
@@ -405,7 +406,7 @@ background-color: transparent;
 width: 245px;
 border: 3px solid white;
 background-color: #e6e7e8;
-height: 64px;
+height: 52px;
 overflow: hidden;
 font-family: OpenSans;
 font-size: 12px;
@@ -417,4 +418,9 @@ position: relative;
  
  .dot:hover .dot_discription{
 	display:block;
+ }
+ 
+ ul{
+     width: 134px !important;
+font-size: 15px !important;
  }
