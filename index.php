@@ -79,6 +79,7 @@
                         <div class="desc-name"><?php echo $row["Description"]; ?></div>
                     </div>
                     <div class="hand"></div>
+                    <div class="hand-line"></div>
                     <div class="timeline">
 						<?php
 							$start= $row["start"]; 
@@ -89,9 +90,9 @@
 							$endPrecent=($end-$start)/($now-$start)*100;
 							$importantDate=($ImportantDate-$start)/($now-$start)*100;
 						?>		
-                        <div class="dot dot_start" style="left:<?php echo $startPrecent; ?>%"><div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
-                        <div class="dot dot_import" style="left:<?php echo $importantDate; ?>%"><div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
-                        <div class="dot dot_end" style="left:<?php echo $endPrecent; ?>%"><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
+                        <div class="dot dot_start" onmouseover="showDescOnDot(this)" style="left:<?php echo $startPrecent; ?>%"><div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
+                        <div class="dot dot_import" onmouseover="showDescOnDot(this)" style="left:<?php echo $importantDate; ?>%"><div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
+                        <div class="dot dot_end" onmouseover="showDescOnDot(this)" style="left:<?php echo $endPrecent; ?>%"><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
                         <div style="padding-left: 20px;">
                             <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
                             <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>

@@ -46,3 +46,16 @@ function hideSidebar(){
 function showSidebar(){
     $("#sidebar").css("right","0");
 }
+
+function showDescOnDot(dot){
+    var timelineWidth = $(".timeline").width()
+    timelineWidth.toString().substring(0,timelineWidth.length-2);
+    var left =$(dot).css("left")
+    var dotLeft =left.toString().substring(0,left.length-2);
+    if(parseInt(dotLeft)  > parseInt(timelineWidth/2)){
+         $(dot).find('.dot_discription').css('right','0px');
+         $(dot).find('.dot_discription').css('position','absolute');
+    }
+   
+    
+}
