@@ -1,13 +1,18 @@
 $(function () {
     $(".hand").click(function () {
-        //$(".main-data").css("visibility","visible");
-        //      $(".main-data").css("opacity","1");
-        $(".main-data").fadeIn();
+        if($(".main-data").is(":visible") ){
+                 $(".main-data").fadeOut();
+        $(".hand-line").fadeOut();
+        }
+        else{
+              $(".main-data").fadeIn();
+        $(".hand-line").fadeIn();
+        }
+      
     });
     $(".x-button").click(function () {
-        //$(".main-data").css("visibility","hidden");
-        //       $(".main-data").css("opacity","0");
-        $(".main-data").fadeOut();
+          $(".main-data").fadeOut();
+        $(".hand-line").fadeOut();
     });
 
     $selectedHighlights = null;
@@ -51,11 +56,22 @@ $(function () {
 })
 
 function hideSidebar(){
-    $("#sidebar").css("visibility","hidden");
-    $("#sidebar").css("opacity","0");
+    $("#sidebar").css("right","-237px");
 }
 
 function showSidebar(){
-    $("#sidebar").css("visibility","visible");
-    $("#sidebar").css("opacity","1");
+    $("#sidebar").css("right","0");
+}
+
+function showDescOnDot(dot){
+    var timelineWidth = $(".timeline").width()
+    timelineWidth.toString().substring(0,timelineWidth.length-2);
+    var left =$(dot).css("left")
+    var dotLeft =left.toString().substring(0,left.length-2);
+    if(parseInt(dotLeft)  > parseInt(timelineWidth/2)){
+         $(dot).find('.dot_discription').css('right','0px');
+         $(dot).find('.dot_discription').css('position','absolute');
+    }
+   
+    
 }

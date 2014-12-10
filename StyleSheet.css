@@ -59,7 +59,7 @@ html {
 
 .main-wrapper {
     width: 80%;
-    height: 574px;
+    height: 100%;
     margin: auto;
     /*box-shadow: 5px 5px 5px 5px;*/
     padding-top: 30px;
@@ -95,7 +95,7 @@ header {
     background-image: url('images/wikidots logo.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-left: 30px;
+    margin-left: 68px;
 }
 
 .menu {
@@ -117,6 +117,9 @@ header {
     padding-right: 30px;
     /* margin: auto; */
     box-sizing: border-box;
+    
+    z-index: 3;
+position: relative;
 }
 
 .main-data {
@@ -167,6 +170,7 @@ position: relative;
 position: absolute;
 bottom: 4px;
 right: 9px;
+text-decoration: none;
  }
 .highlights-wrapper
 {
@@ -179,11 +183,11 @@ margin-top: 48px;
 }
 
 .highlights-item{
-   width: 90px;
-
-display: inline-block;
+  width: 100px;
 margin-right: 10px;
 cursor: pointer;
+float: left;
+height: 141px;   
 }
 .high-img{
  width: 90px;
@@ -193,13 +197,19 @@ background-color: black;
 border: 2px solid white;
 background-size: 100%;
 background-size: cover;
+right: 0;
+position: relative;
+transition: width 0.5s ,right 0.5s ;
 }
   .selected{
      width: 100px; 
  }
  .selected .high-img{border: 3px solid #d31c5b;
-width: 100px;
-height: 100px;}
+width: 96px;
+height: 100px;
+right: 4px;
+
+ }
 .high-title{
     font-size: 12px;
 color: white;
@@ -208,6 +218,8 @@ height: 32px;
 overflow: hidden;
 margin-bottom: 5px;
 margin-top: 2px;
+
+
 }
  .play{background-image: url('images/play.png');
 background-repeat: no-repeat;
@@ -236,15 +248,21 @@ font-family: MyriadPro-BoldIt;
 }
 
 .footer{
-  BOTTOM: 0;
+ 
 position: absolute;
-height: 159px;
+bottom: 0;
+height: 205px;
 width: 100%;
 position: absolute;
+padding-left: 36px;
+padding-right: 58px;
+/* margin: auto; */
+box-sizing: border-box;
+z-index: 1;
 
 }
 .main-data-footer{
-   width: 500px;
+   width: 560px;
 float: left; 
 }
 
@@ -256,21 +274,40 @@ width: 204px;
 height: 88px;
 float: right;
 position: relative;
-right: 41px;
+right: -17px;
+cursor: pointer;
 
-/*transition: visibility 0.1s linear,opacity 0.3s linear;
-visibility: visible;
-opacity: 1;*/
 }
+ .hand-line{
+   background-image: url('images/line.png');
+background-repeat: no-repeat;
+background-size: 100%;
+width: 158px;
+height: 65px;
+float: right;
+right: -49px;
+position: relative;
+display: none;
+
+ }
 
 .wikipedia_button{
-	height: 27.2px;
+	height: 9.2px;
+position: relative;
+width: 28px;
+height: 28px;
+display: inline-block;
+vertical-align: bottom;
+margin-bottom: 4px;
 }
 
 .wikipedia_button img{
 	width: 28px;
 	height: 27.2px;
+    display: block;
 }
+ 
+ 
 
 
 
@@ -291,22 +328,26 @@ opacity: 1;*/
  
  /*********timeline**********/
  .timeline{
-     clear: both;
+    clear: both;
+width: 100%;
+height: 50px;
+position: relative;
+/*top: 10px;*/
  }
  .dot{background-image: url('images/dot.png');
 background-repeat: no-repeat;
 background-size: 100%;
-width: 33px;
+width: 31px;
 height: 28px;
 background-size: 200%;
-background-position-x: 4px;
+background-position-x: 2px;
 position: absolute;
 left: 0;
-margin-top: 4px;
+margin-top: 6px;
 
  }
- .dot.active{
-     background-position-x: -26px;
+ .dot:hover{
+   background-position-x: -27px;
  }
  .pink{
     background-image: url('images/broken.png');
@@ -320,9 +361,12 @@ margin-top: 17px;
  .line{
  height: 3px;
 background-color: gray;
-width: 50%;
+width: 0;
 float: left;
 margin-top: 18px;
+
+
+transition: width 10s linear;
  }
  
  /**********sidebar************/
@@ -331,14 +375,13 @@ margin-top: 18px;
 width: 237px;
 height: 100%;
 position: absolute;
-right: 0;
+right: -237px;
 top: 0;
 background-image: url('images/sidepanel.png');
 background-size: 100%;
 
-transition: visibility 0.1s linear,opacity 0.3s linear;
-visibility: hidden;
-opacity: 0;
+transition: right 0.5s linear;
+
         
  }
  .x{
@@ -364,9 +407,34 @@ background-color: transparent;
  }
  
  .dot .dot_discription{
-	display:none;
+	 display: none; 
+width: 245px;
+border: 3px solid white;
+background-color: #e6e7e8;
+height: 52px;
+overflow: hidden;
+font-family: OpenSans;
+font-size: 12px;
+margin-left: 17px;
+margin-top: 13px;
+z-index: 1;
+position: relative;
  } 
  
  .dot:hover .dot_discription{
 	display:block;
+ }
+ 
+ ul{
+     width: 134px !important;
+font-size: 15px !important;
+ }
+ 
+ .homepage{
+     background-image: url('images/home.jpg');
+width: 100%;
+height: 100%;
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
  }
