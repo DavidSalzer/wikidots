@@ -1,14 +1,17 @@
 $(function () {
     $(".hand").click(function () {
-        //$(".main-data").css("visibility","visible");
-        //      $(".main-data").css("opacity","1");
-        $(".main-data").fadeIn();
+        if($(".main-data").is(":visible") ){
+                 $(".main-data").fadeOut();
+        $(".hand-line").fadeOut();
+        }
+        else{
+              $(".main-data").fadeIn();
         $(".hand-line").fadeIn();
+        }
+      
     });
     $(".x-button").click(function () {
-        //$(".main-data").css("visibility","hidden");
-        //       $(".main-data").css("opacity","0");
-        $(".main-data").fadeOut();
+          $(".main-data").fadeOut();
         $(".hand-line").fadeOut();
     });
 
