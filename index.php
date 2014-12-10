@@ -40,6 +40,11 @@
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+		<div class="popup popup-oops">
+			<div>
+				<div class="x-popup"></div>
+			</div>
+		</div>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
         <div class="main-wrapper">
             <header>

@@ -28,7 +28,10 @@ $(function () {
 			$(".highlights-item").removeClass("selected");
             $selectedHighlights.addClass("selected");
             $(".main-data.point-selected .synopsis .highlights-text").html($selectedHighlights.attr("data-description"));
-            $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
+            if($selectedHighlights.attr("data-id")!="")
+				$(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
+			else
+				$(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").show();');
         }
     })
 	
@@ -46,10 +49,17 @@ $(function () {
 			if (valueName==element.valueName)
 				valueID=element.valueID;
 		});
-		window.location = "/?id="+valueID;
-		
+		if (valueID!=null)
+			window.location = "/?id="+valueID;
+		else
+			$(".popup-oops").show();
+		hideSidebar();
 		return false;
 	}
+	
+	$(" .popup .x-popup").click(function(){
+		$(".popup-oops").hide();
+	})
 
 
 
