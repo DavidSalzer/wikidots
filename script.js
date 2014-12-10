@@ -26,6 +26,14 @@ $(function () {
             $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
         }
     })
+	
+	$( ".search" ).autocomplete({
+		source: valuesName
+	});
+	
+	$(".search-form").submit(function(){
+		alert($( ".search" ).val());
+	})
 
 
 

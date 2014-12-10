@@ -21,8 +21,23 @@
         <meta charset="utf-8" />
         <title>Wikidots</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script>
+			<?php
+				$statement = $db->prepare("select `valueName`,`valueID` from value");
+				$statement->execute();
+				$table = $statement->fetchAll(PDO::FETCH_ASSOC);
+				echo "var values=".json_encode($table).";";
+			?>
+			var valuesName=[];
+			values.forEach(function(element){
+				valuesName.push(element.valueName);
+			});
+		</script>
+		
 		<script src="script.js"></script>
-        <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+		<link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')" ></div>
@@ -89,7 +104,9 @@
 
             <div id="sidebar">			
                 <div class="x" onclick="hideSidebar()"></div>
-                <input class="search" type="text" />
+				<form class="search-form">
+					<input class="search" type="text" />
+				</form>
                 <div class="options">
                     <div class="option-item"></div>
                 </div>
