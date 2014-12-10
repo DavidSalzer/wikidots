@@ -32,11 +32,9 @@ $(function () {
 })
 
 function hideSidebar(){
-    $("#sidebar").css("visibility","hidden");
-    $("#sidebar").css("opacity","0");
+    $("#sidebar").css("right","-237px");
 }
 
 function showSidebar(){
-    $("#sidebar").css("visibility","visible");
-    $("#sidebar").css("opacity","1");
+    $("#sidebar").css("right","0");
 }
