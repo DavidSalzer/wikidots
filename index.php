@@ -48,12 +48,13 @@
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
         <div class="main-wrapper">
             <header>
-                <div class="logo"></div>
+                <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
                 <div class="menu" onclick="showSidebar()"></div>
             </header>
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                 <div class="main-data">
+                    <div class="back-button" style="display: none;">back</div>
                     <div class="x-button"></div>
                     <div class="synopsis">
                         <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
@@ -99,9 +100,10 @@
                             $endPrecent=($end-$start)/($now-$start)*100;
                             $importantDate=($ImportantDate-$start)/($now-$start)*100;
                         ?>
-                        <div class="dot dot_start" onmouseover="showDescOnDot(this)" style="left:<?php echo $startPrecent; ?>%"><div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
-                        <div class="dot dot_import" onmouseover="showDescOnDot(this)" style="left:<?php echo $importantDate; ?>%"><div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
-                        <div class="dot dot_end" onmouseover="showDescOnDot(this)" style="left:<?php echo $endPrecent; ?>%"><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
+                       
+                        <div class="dot dot_start" onmouseover="showDescOnDot(this)" style="left:<?php echo $startPrecent; ?>%"><div class="date-point"><?php echo $start ?></div> <div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
+                        <div class="dot dot_import" onmouseover="showDescOnDot(this)" style="left:<?php echo $importantDate; ?>%"><div class="date-point"><?php echo $ImportantDate ?></div> <div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
+                        <div class="dot dot_end" onmouseover="showDescOnDot(this)" style="left:<?php echo $endPrecent; ?>%"><div class="date-point"><?php echo $end ?></div><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
                         <div style="padding-left: 20px;">
                             <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
                             <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>
@@ -113,6 +115,9 @@
                 <div class="x" onclick="hideSidebar()"></div>
                 <form class="search-form">
                     <input class="search" type="text" />
+                    <div class="magnifying-glass"></div>
+                    <div class="create-new"></div>
+                    <div class="random"> <a href="/?id=The_Beatles"></a></div>
                 </form>
                 <div class="options">
                     <div class="option-item"></div>
