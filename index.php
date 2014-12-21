@@ -19,6 +19,11 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta property="og:title" content="<?php echo $row["valueName"]; ?>" />
+        <meta property="og:site_name" content="wikidocs" />
+        <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
+        <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
+        <meta property="og:locale" content="en_US" /> 
         <title>Wikidots</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -40,6 +45,11 @@
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        
+        <div style="position: absolute; color: #fff; font-size: 15px;">
+        <?php print_r($row);?>
+            </div>
+      
 		<div class="popup popup-oops">
 			<div>
 				<div class="x-popup"></div>
@@ -71,9 +81,9 @@
                         <?php endif ?>
                         <?php endfor ?>
                     </div>
-                    <div class="play">
-
-                    </div>
+                    <?php if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
+                        <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"></div>
+                    <?php endif?>
                 </div>
                 </div>
                 <div class="touch-wrapper">
@@ -81,7 +91,7 @@
                     <div class="hand-line" ></div>
                 </div>
                 
-
+               
             </div>
             <div class="footer">
                     <div class="main-data-footer">
@@ -117,12 +127,17 @@
                     <input class="search" type="text" />
                     <div class="magnifying-glass"></div>
                     <div class="create-new"></div>
+                    <div class="share-item"></div>
                     <div class="random"> <a href="/?id=The_Beatles"></a></div>
                 </form>
                 <div class="options">
                     <div class="option-item"></div>
                 </div>
             </div>
+        </div>
+
+        <div class="youtube-iframe" style="display: none;">
+            <iframe class="the-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
     </body>

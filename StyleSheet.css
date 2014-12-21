@@ -142,6 +142,29 @@ header {
     right: 0;
 }
 
+.synopsis.selectedsyn {
+   border: 3px solid #d31c5b;
+}
+
+.youtube-iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    top: 0px;
+    z-index: 3;
+}
+
+.youtube-iframe iframe {
+  display: block;
+  margin: auto;  
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 .synopsis {
     box-shadow: 10px 18px 21px 0.00px rgba(1, 1, 1, 0.43);
     width: 342px;
@@ -497,6 +520,15 @@ a.logo-ref:link {
     cursor: pointer;
 }
 
+.share-item {
+    width: 172px;
+    height: 52px;
+    position: absolute;
+    top: 121px;
+    left: 32px;
+    cursor: pointer;
+}
+
 .create-new {
     width: 172px;
     height: 52px;
@@ -507,11 +539,10 @@ a.logo-ref:link {
 }
 
 .random {
-     width: 172px;
+    width: 172px;
     height: 52px;
     position: absolute;
-    
-     top: 230px;
+    top: 230px;
     left: 32px;
     cursor: pointer;
 }

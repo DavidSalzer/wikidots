@@ -18,13 +18,19 @@ $(function () {
         $(".hand-line").fadeOut();
     });
 
+    $(".play").click(function () {
+        $(".youtube-iframe").show();
+        var f =  $(".play").attr("vidio-url");
+        $(".play").attr("src",f);
 
+    });
 
 
     $selectedHighlights = null;
     $(".highlights-item .high-img").click(function () {
         if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
             $(".highlights-item").removeClass("selected");
+            $(".synopsis").removeClass("selectedsyn");
             $selectedHighlights = null;
             $(".main-data").removeClass("point-selected");
             $(".back-button").hide();
@@ -32,6 +38,7 @@ $(function () {
         else {
             $selectedHighlights = $(this).parent(".highlights-item");
             $(".main-data").addClass("point-selected");
+            $(".synopsis").addClass("selectedsyn");
             $(".back-button").show();
             $(".highlights-item").removeClass("selected");
             $selectedHighlights.addClass("selected");
@@ -55,8 +62,17 @@ $(function () {
 
     })
 
-    $(".back-button").click(function () {
+    $(".share-item").click(function () {
+        // var v = window.location.toString(window.location.href)
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href);
+        //window.open('https://www.facebook.com/sharer/sharer.php?u=http://wikidots.com/?id=Albert_Einstein');
 
+    })
+
+
+
+    $(".back-button").click(function () {
+        $(".synopsis").removeClass("selectedsyn");
         $(".highlights-item").removeClass("selected");
         $selectedHighlights = null;
         $(".main-data").removeClass("point-selected");
