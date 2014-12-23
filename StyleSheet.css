@@ -153,12 +153,13 @@ font-size: 17px;
 background-repeat: no-repeat;
 /* background-size: 10px 10px; */
 background-position: 0px -4px;
-padding-left: 15px;
+padding-left: 0px;
 background-image: url(images/back.png);
 width: 86px;
 height: 42px;
 color: #ffffff;
 cursor: pointer;
+background-position-x: -11px;
 }
 
 .x-button {
