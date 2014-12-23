@@ -13,7 +13,7 @@ $(function () {
         }
 
     });
-	setInterval(function(){
+	setTimeout(function(){
 		$(".main-data").fadeIn();
 		$(".hand-line").fadeIn();
 		$(".popup-oops").hide();
@@ -26,7 +26,7 @@ $(function () {
     });
 
     $(".play").click(function () {
-        $(".youtube-iframe").show();
+        $(".youtube-iframe").fadeIn();
         var url = $(".play").attr("vidio-url");
         var v = url.split('v=')[1];
         $("#youtubeIframe").attr("src", "//www.youtube.com/embed/" + v);
@@ -54,7 +54,7 @@ $(function () {
             if ($selectedHighlights.attr("data-id") != "")
                 $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
             else
-                $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").show();');
+                $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").fadeIn();');
         }
     })
 	
@@ -68,7 +68,7 @@ $(function () {
     })
 
     $(".create-new").click(function () {
-        $(".popup-oops").show();
+        $(".popup-oops").fadeIn();
         hideSidebar();
         $(".main-data").hide();
         $(".hand-line").hide();
@@ -92,7 +92,6 @@ $(function () {
         $(".back-button").hide();
     })
 
-
     $(".search").autocomplete({
         source: valuesName,
         close: searchChange
@@ -110,7 +109,7 @@ $(function () {
         if (valueID != null)
             window.location = "/?id=" + valueID;
         else
-            $(".popup-oops").show();
+            $(".popup-oops").fadeIn();
         hideSidebar();
         return false;
     }
@@ -137,7 +136,7 @@ function showSidebar() {
 
 function showEdit(){
      $(".popup").hide()
-    $(".popup-editor").show()
+    $(".popup-editor").fadeIn()
 }
 function showDescOnDot(dot) {
     var timelineWidth = $(".timeline").width()
@@ -150,4 +149,9 @@ function showDescOnDot(dot) {
     }
 
 
+}
+
+function hideVideo(){
+    $(".youtube-iframe").hide(); 
+    $('#youtubeIframe').attr('src','')
 }

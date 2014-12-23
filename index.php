@@ -10,9 +10,9 @@
     $statement->execute(array(':valueID' => $valueID));
     $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
     if ($row==null){
-		header("Location: homepage.php");
-		die();
-	}
+  header("Location: homepage.php");
+  die();
+ }
 
     //print_r($row);
 ?>
@@ -26,7 +26,7 @@
         <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
         <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
         <meta property="og:locale" content="en_US" /> 
-        <title>Wikidots - <?php echo $row["valueName"]; ?></title>
+        <title>Wikidots</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script>
@@ -48,8 +48,6 @@
     </head>
     <body class="value-page">
      
-        <div style="position: absolute; color: #fff; font-size: 15px;">
-            </div>
       
 		<div class="popup popup-oops">
 			<div>
@@ -147,7 +145,7 @@
             </div>
         </div>
 
-        <div class="youtube-iframe" style="display: none;">
+        <div class="youtube-iframe" style="display: none;" onclick="hideVideo()">
             <iframe id="youtubeIframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 

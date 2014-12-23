@@ -97,6 +97,7 @@ position: relative;
     background-repeat: no-repeat;
     background-size: 100%;
     margin-right: 30px;
+    cursor: pointer;
 }
 
 .menu.edit{
@@ -109,6 +110,9 @@ background-position-y: -10px;
 
    cursor: pointer;
 }
+.menu:hover{
+    opacity: 0.8;
+} 
 .main-data-wrapper {
    width: 100%;
 height: 344px;
@@ -152,6 +156,7 @@ background-image: url(images/back.png);
 width: 86px;
 height: 42px;
 color: #ffffff;
+cursor: pointer;
 }
 
 .x-button {
@@ -164,6 +169,10 @@ color: #ffffff;
     /* float: right; */
     position: absolute;
     right: 0;
+    cursor: pointer;
+}
+.x-button:hover{
+    opacity: 0.8
 }
 
 .synopsis.selectedsyn {
@@ -208,6 +217,9 @@ color: #ffffff;
     margin-top: 30px;
     font-family: opensans;
     position: relative;
+    border: 3px solid white;
+    
+    transition: all 0.3s linear;
 }
 
 .syn-text::first-letter {
@@ -264,6 +276,9 @@ color: #ffffff;
     right: 4px;
 }
 
+.high-img:hover{
+    border: 2px solid #d31c5b;
+}
 .high-title {
     font-size: 12px;
     color: white;
@@ -286,12 +301,16 @@ color: #ffffff;
     top: 131px;
     cursor: pointer;
 }
+.play:hover{
+    opacity: 0.8;
+} 
 
 .value-name {
     font-size: 51px;
     text-shadow: 2px 2px #000;
     color: white;
     font-family: MyriadPro;
+    width: 936px;
 }
 
 .desc-name {
@@ -324,12 +343,15 @@ color: #ffffff;
     background-repeat: no-repeat;
     background-size: 100%;
     width: 204px;
-    height: 88px;
+    height: 98px;
     float: right;
     position: relative;
     right: -17px;
     cursor: pointer;
 }
+.hand:hover{
+    opacity: 0.8;
+} 
 
 .hand-line {
     background-image: url('images/line.png');
@@ -613,6 +635,7 @@ a.logo-ref:link {
     background-image: url("images/filtercube.png");
     background-repeat: repeat;
     top: 0;
+    left: 0;
 }
 body.home-page .give_dots{
 	float: left;
