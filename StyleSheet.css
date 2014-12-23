@@ -635,3 +635,7 @@ body.home-page  .homepage_laptop{
 	right: 0px;
 	bottom: -44px;
 }
+
+body.home-page .main-data {
+	background-color: rgba(0,0,0,0.7);
+}
