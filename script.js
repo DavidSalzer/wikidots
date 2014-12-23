@@ -119,6 +119,18 @@ $(function () {
     setTimeout(function(){
         animate()
     },200);
+	
+	$('#send-email').submit(function(){
+		$.ajax({
+		  type: "POST",
+		  url: "getEmail.php",
+		  data: {message:$(this).find("textarea").val()},
+		  success: function(){
+			alert("aa");
+		  },
+		});
+		return false;
+	})
 
 
 })

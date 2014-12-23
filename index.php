@@ -49,17 +49,22 @@
     <body class="value-page">
      
       
-		<div class="popup popup-oops">
+		<!--<div class="popup">
 			<div>
 				<div class="x-popup"></div>
                 <div class="create-new-text" onclick=" showEdit()"></div>
 			
 			</div>
-		</div>
-        <div class="popup popup-editor">
+		</div> -->
+        <div class="popup popup-editor popup-oops">
 			<div>
 				<div class="x-popup"></div>
-                <div class="send-mail"><a href="mailto:elad@pixidigital.com?Subject=edit mail from user" target="_top">Send Mail</a></div>
+
+				<form id="send-email">
+					<textarea></textarea>
+					<input type="image" src="images/submit-button-21.png" alt="Submit Form" />
+				</form>
+
 			</div>
 		</div>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
