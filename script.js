@@ -13,13 +13,13 @@ $(function () {
         }
 
     });
-	setTimeout(function(){
-		$(".main-data").fadeIn();
-		$(".hand-line").fadeIn();
-		$(".popup-oops").hide();
-		hideSidebar();
-	},1000)
-	
+    //setTimeout(function(){
+    //	$(".main-data").fadeIn();
+    //	$(".hand-line").fadeIn();
+    //	$(".popup-oops").hide();
+    //	hideSidebar();
+    //},1000)
+
     $(".x-button").click(function () {
         $(".main-data").fadeOut();
         $(".hand-line").fadeOut();
@@ -57,11 +57,11 @@ $(function () {
                 $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").fadeIn();');
         }
     })
-	
-	$("body.home-page .highlights-item .high-img").click(function () {
-		$selectedHighlights = $(this).parent(".highlights-item");
-		window.location = "/?id="+$selectedHighlights.attr("data-id");
-	});
+
+    $("body.home-page .highlights-item .high-img").click(function () {
+        $selectedHighlights = $(this).parent(".highlights-item");
+        window.location = "/?id=" + $selectedHighlights.attr("data-id");
+    });
 
     $(".magnifying-glass").click(function () {
         searchChange();
@@ -118,6 +118,9 @@ $(function () {
         $(".popup").hide();
     })
 
+    setTimeout(function(){
+        animate()
+    },200);
 
 
 })
@@ -154,4 +157,34 @@ function showDescOnDot(dot) {
 function hideVideo(){
     $(".youtube-iframe").hide(); 
     $('#youtubeIframe').attr('src','')
+}
+
+function animate(){
+   
+    
+    
+    setTimeout(function(){
+         $(".main-background").fadeIn(1600);
+    },100)
+     setTimeout(function(){
+          $(".value-name").fadeIn(1600);
+    },100)
+     setTimeout(function(){
+         $('.desc-name').fadeIn();
+    },500)
+     setTimeout(function(){
+         $(".timeline").fadeIn();
+    },900)
+     setTimeout(function(){
+         $(".hand").fadeIn();
+          $(".hand-line").fadeIn();
+    },1200)
+     setTimeout(function(){
+         $(".main-data").fadeIn();
+    },1200)
+
+    setTimeout(function(){
+         $(".date-point").fadeIn(500);
+    },2000)
+    
 }

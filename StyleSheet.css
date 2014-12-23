@@ -70,6 +70,8 @@ html {
     right: 0;
     background-repeat: no-repeat;
     background-position-y: 10%; /*-203px;*/
+    
+    display: none;
 }
 
 header {
@@ -311,6 +313,8 @@ cursor: pointer;
     color: white;
     font-family: MyriadPro;
     width: 936px;
+    
+    display: none;
 }
 
 .desc-name {
@@ -318,6 +322,8 @@ cursor: pointer;
     color: white;
     text-shadow: 2px 2px #000;
     font-family: MyriadPro-BoldIt;
+    
+    display: none;
 }
 
 .footer {
@@ -348,6 +354,8 @@ cursor: pointer;
     position: relative;
     right: -17px;
     cursor: pointer;
+    
+    display: none;
 }
 .hand:hover{
     opacity: 0.8;
@@ -405,6 +413,8 @@ cursor: pointer;
     height: 50px;
     position: relative;
     /*top: 10px;*/
+    
+    display: none;
 }
 
 .dot {
@@ -445,17 +455,18 @@ cursor: pointer;
 
 /**********sidebar************/
 #sidebar {
-    background-color: black;
-    width: 237px;
-    height: 100%;
-    position: absolute;
-    right: -237px;
-    top: 0;
-    background-repeat: no-repeat;
-    background-image: url('images/sidepanel.png');
-    background-size: 100%;
-    transition: right 0.5s linear;
-    z-index: 3;
+   background-color: black;
+width: 237px;
+height: 100%;
+position: absolute;
+right: -237px;
+top: 0;
+background-repeat: no-repeat;
+background-image: url('images/sidepanel.png');
+background-size: 125%;
+transition: right 0.5s linear;
+z-index: 3;
+background-position: -30px -20px;
 }
 
 .x {
@@ -468,11 +479,12 @@ cursor: pointer;
 
 input {
     border: none;
-    position: relative;
-    top: 80px;
-    left: 40px;
-    width: 135px;
-    background-color: transparent;
+position: relative;
+top: 81px;
+left: 19px;
+width: 172px;
+background-color: transparent;
+height: 21px;
 }
 
 .options {
@@ -566,8 +578,9 @@ height: 20px;
     position: relative;
     text-align: center;
     top: 27px;
-    font-size: 10px;
+    font-size: 15px;
     left: -2px;
+    display: none;
 }
 
 a.logo-ref:link {

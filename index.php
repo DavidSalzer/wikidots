@@ -146,7 +146,7 @@
         </div>
 
         <div class="youtube-iframe" style="display: none;" onclick="hideVideo()">
-            <iframe id="youtubeIframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <iframe id="youtubeIframe" width="700" height="380" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
         
