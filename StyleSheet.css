@@ -620,6 +620,22 @@ body.home-page .give_dots{
 	margin-top: -24px;
 }
 
-body  .highlights-wrapper{
+body.home-page  .highlights-wrapper{
 	width: 500px;
+}
+
+body.home-page  .homepage_headline_text{
+	width: 470px;
+	position: absolute;
+}
+
+body.home-page  .homepage_laptop{
+	width: 420px;
+	position: absolute;
+	right: 0px;
+	bottom: -44px;
+}
+
+body.home-page  .main-data {
+    display: block;
 }

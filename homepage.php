@@ -37,6 +37,8 @@
                 <div style=" width: 100%;height: 100%;">
                 <div class="main-data">
 					<div class="x-button"></div>
+					<img class="homepage_headline_text" src="images/homepage_headline_text_19.png" />
+					<img class="homepage_laptop" src="images/laptop-18.png" />
 
                 </div>
                 </div>
