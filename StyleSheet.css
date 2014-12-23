@@ -554,3 +554,13 @@ a.logo-ref:link {
     height: 200px;
     width: 200px;
 }
+
+body.home-page .give_dots{
+	float: left;
+	width: 150px;
+	margin-top: -24px;
+}
+
+body  .highlights-wrapper{
+	width: 500px;
+}

@@ -1,17 +1,19 @@
 <?php
-    $valueID = isset($_GET['id'])?$_GET['id']:"urassic_World";
+    $valueID = isset($_GET['id'])?$_GET['id']:"";
     
     $dbname = "wikidots";
     $host = "82.80.210.144";  
     $user = "wikidots";
     $pass = "wagoiplrkyjdnvtxemcq"; 
     $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    
     $statement = $db->prepare("select * from value where valueID = :valueID");
     $statement->execute(array(':valueID' => $valueID));
     $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
-    if ($row==null)
-        die("404");
+    if ($row==null){
+		header("Location: homepage.php");
+		die();
+	}
+
     //print_r($row);
 ?>
 
@@ -24,7 +26,7 @@
         <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
         <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
         <meta property="og:locale" content="en_US" /> 
-        <title>Wikidots</title>
+        <title>Wikidots - <?php echo $row["valueName"]; ?></title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script>
@@ -44,10 +46,9 @@
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body class="value-page">
         
         <div style="position: absolute; color: #fff; font-size: 15px;">
-        <?php print_r($row);?>
             </div>
       
 		<div class="popup popup-oops">
@@ -56,6 +57,7 @@
 			</div>
 		</div>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
+		<div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
