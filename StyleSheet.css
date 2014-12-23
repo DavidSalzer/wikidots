@@ -45,12 +45,13 @@ html {
     overflow: hidden;
 }
 
+
 .main-wrapper {
-    width: 80%;
+    width: 1024px;
     height: 100%;
     margin: auto;
-    /*box-shadow: 5px 5px 5px 5px;*/
-    padding-top: 30px;
+    /* box-shadow: 5px 5px 5px 5px; */
+    /* padding-top: 30px; */
     overflow: hidden;
     background-size: contain;
     position: relative;
@@ -58,7 +59,7 @@ html {
 
 .main-background {
     width: 100%;
-    height: 800px;
+    height: 100%;
     margin: auto;
     overflow: hidden;
     background-size: cover;
@@ -74,6 +75,8 @@ html {
 header {
     width: 100%;
     height: 30px;
+    top: 19px;
+position: relative;
 }
 
 .logo {
@@ -83,7 +86,7 @@ header {
     background-image: url('images/wikidots logo.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-left: 68px;
+    margin-left: 30px;
 }
 
 .menu {
@@ -96,17 +99,36 @@ header {
     margin-right: 30px;
 }
 
+.menu.edit{
+    background-image: url('images/editicon.png');
+width: 43px;
+height: 47px;
+background-size: 100% 100%;
+margin-right: 10px;
+background-position-y: -10px;
+
+   
+}
 .main-data-wrapper {
-    width: 100%;
-    height: 344px;
-    margin: auto;
-    margin-top: 4%;
-    padding-left: 30px;
-    padding-right: 30px;
-    /* margin: auto; */
-    box-sizing: border-box;
-    z-index: 3;
-    position: relative;
+   width: 100%;
+height: 344px;
+margin: auto;
+/* margin-top: 4%; */
+padding-left: 30px;
+padding-right: 30px;
+/* margin: auto; */
+box-sizing: border-box;
+z-index: 3;
+position: absolute;
+top: 15%;
+/*bottom: 0;*/
+left: 0;
+right: 0;
+}
+@media screen and (min-height: 700px) {
+   .main-data-wrapper {
+      top: 21%;
+    }
 }
 
 .main-data {
@@ -282,7 +304,7 @@ header {
 .footer {
     position: absolute;
     bottom: 0;
-    height: 205px;
+    height: 185px;
     width: 100%;
     position: absolute;
     padding-left: 36px;
@@ -471,7 +493,7 @@ ul {
     background-position: center;
 }
 
-.popup-oops {
+.popup {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -479,17 +501,44 @@ ul {
     display: none;
 }
 
-.popup-oops > div {
+.popup > div {
     width: 674px;
     height: 444px;
     margin: auto;
-    background-image: url("images/popup-oops.png");
-    z-index: 4;
+     z-index: 4;
     position: relative;
     background-repeat: no-repeat;
     background-size: 100%;
 }
+.popup-oops > div {
+     background-image: url("images/popup-oops.png");
+  
+}
+.popup-editor > div {
+     background-image: url("images/editPopup.png");
+  
+}
+.send-mail{
+    position: absolute;
+bottom: 200px;
+width: 300px;
+left: 216px;
+opacity: 0;
+}
+.send-mail a{
+    width: 100%;
+display: block;
+}
 
+.create-new-text{
+  position: absolute;
+bottom: 176px;
+width: 198px;
+left: 69px;
+opacity: 0;
+cursor: pointer;
+height: 20px;
+}
 .date-point {
     color: #ffffff;
     position: relative;
@@ -555,6 +604,16 @@ a.logo-ref:link {
     width: 200px;
 }
 
+
+
+#mainMask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/filtercube.png");
+    background-repeat: repeat;
+    top: 0;
+}
 body.home-page .give_dots{
 	float: left;
 	width: 150px;
