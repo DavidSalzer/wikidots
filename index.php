@@ -45,7 +45,7 @@
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        
+     
         <div style="position: absolute; color: #fff; font-size: 15px;">
         <?php print_r($row);?>
             </div>
@@ -53,13 +53,23 @@
 		<div class="popup popup-oops">
 			<div>
 				<div class="x-popup"></div>
+                <div class="create-new-text" onclick=" showEdit()"></div>
+			
+			</div>
+		</div>
+        <div class="popup popup-editor">
+			<div>
+				<div class="x-popup"></div>
+                <div class="send-mail"><a href="mailto:elad@pixidigital.com?Subject=edit mail from user" target="_top">Send Mail</a></div>
 			</div>
 		</div>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
+           <div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
                 <div class="menu" onclick="showSidebar()"></div>
+                <div class="menu edit" onclick="showEdit()"></div>
             </header>
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
@@ -140,5 +150,6 @@
             <iframe class="the-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
+        
     </body>
 </html>

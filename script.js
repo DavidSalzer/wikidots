@@ -103,7 +103,7 @@ $(function () {
     }
 
     $(" .popup .x-popup").click(function () {
-        $(".popup-oops").hide();
+        $(".popup").hide();
     })
 
 
@@ -115,12 +115,17 @@ function hideSidebar() {
 }
 
 function showSidebar() {
-    $(".popup-oops").hide();
+    $(".popup").hide();
     $(".main-data").hide();
     $(".hand-line").hide();
     $("#sidebar").css("right", "0");
 }
 
+
+function showEdit(){
+     $(".popup").hide()
+    $(".popup-editor").show()
+}
 function showDescOnDot(dot) {
     var timelineWidth = $(".timeline").width()
     timelineWidth.toString().substring(0, timelineWidth.length - 2);
