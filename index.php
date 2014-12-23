@@ -74,7 +74,7 @@
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                 <div class="main-data">
-                    <div class="back-button" style="display: none;">back</div>
+                    <div class="back-button" style="display: none;"></div>
                     <div class="x-button"></div>
                     <div class="synopsis">
                         <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
@@ -147,7 +147,7 @@
         </div>
 
         <div class="youtube-iframe" style="display: none;">
-            <iframe class="the-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <iframe id="youtubeIframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
         

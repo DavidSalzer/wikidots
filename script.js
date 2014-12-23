@@ -20,9 +20,10 @@ $(function () {
 
     $(".play").click(function () {
         $(".youtube-iframe").show();
-        var f =  $(".play").attr("vidio-url");
-        $(".play").attr("src",f);
-
+        var url = $(".play").attr("vidio-url");
+        var v = url.split('v=')[1];
+        $("#youtubeIframe").attr("src", "//www.youtube.com/embed/" + v);
+        ////www.youtube.com/embed/PBN0nqQX5xo
     });
 
 
