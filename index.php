@@ -1,19 +1,17 @@
 <?php
-    $valueID = isset($_GET['id'])?$_GET['id']:"";
+    $valueID = isset($_GET['id'])?$_GET['id']:"urassic_World";
     
     $dbname = "wikidots";
     $host = "82.80.210.144";  
     $user = "wikidots";
     $pass = "wagoiplrkyjdnvtxemcq"; 
     $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+    
     $statement = $db->prepare("select * from value where valueID = :valueID");
     $statement->execute(array(':valueID' => $valueID));
     $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
-    if ($row==null){
-		header("Location: homepage.php");
-		die();
-	}
-
+    if ($row==null)
+        die("404");
     //print_r($row);
 ?>
 
@@ -26,7 +24,7 @@
         <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
         <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
         <meta property="og:locale" content="en_US" /> 
-        <title>Wikidots - <?php echo $row["valueName"]; ?></title>
+        <title>Wikidots</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script>
@@ -46,9 +44,10 @@
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
-    <body class="value-page">
+    <body>
      
         <div style="position: absolute; color: #fff; font-size: 15px;">
+        <?php print_r($row);?>
             </div>
       
 		<div class="popup popup-oops">
@@ -147,7 +146,7 @@
             </div>
         </div>
 
-        <div class="youtube-iframe" style="display: none;">
+        <div class="youtube-iframe" style="display: none;" onclick="hideVideo()">
             <iframe id="youtubeIframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
