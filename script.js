@@ -1,5 +1,5 @@
 $(function () {
-    $(".hand").click(function () {
+    $("body.value-page .hand").click(function () {
 
         if ($(".main-data").is(":visible")) {
             $(".main-data").fadeOut();
@@ -11,8 +11,12 @@ $(function () {
             $(".popup-oops").hide();
             hideSidebar();
         }
-
     });
+	
+	$("body.home-page .hand").click(function () {
+		showSidebar();
+	})
+	
 	setTimeout(function(){
 		$(".main-data").fadeIn();
 		$(".hand-line").fadeIn();
@@ -30,7 +34,7 @@ $(function () {
         var url = $(".play").attr("vidio-url");
         var v = url.split('v=')[1];
         $("#youtubeIframe").attr("src", "//www.youtube.com/embed/" + v);
-        ////www.youtube.com/embed/PBN0nqQX5xo
+        //www.youtube.com/embed/PBN0nqQX5xo
     });
 
 
@@ -128,8 +132,10 @@ function hideSidebar() {
 
 function showSidebar() {
     $(".popup").hide();
-    $(".main-data").hide();
-    $(".hand-line").hide();
+	if (!$('body').hasClass("home-page")){
+		$(".main-data").hide();
+		$(".hand-line").hide();
+	}
     $("#sidebar").css("right", "0");
 }
 
