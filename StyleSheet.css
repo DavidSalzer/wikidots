@@ -1,49 +1,37 @@
- @font-face {
+@font-face {
     font-family: 'opensans';
     src: url('fonts/OpenSans.eot');
-    src: url('fonts/OpenSans.eot?#iefix') format('embedded-opentype'),
-         url('fonts/OpenSans.woff') format('woff'),
-         url('fonts/OpenSans.ttf') format('truetype'),
-         url('fonts/OpenSans.svg#Sri-TSCRegular') format('svg');
+    src: url('fonts/OpenSans.eot?#iefix') format('embedded-opentype'), url('fonts/OpenSans.woff') format('woff'), url('fonts/OpenSans.ttf') format('truetype'), url('fonts/OpenSans.svg#Sri-TSCRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-   }
+}
 
- @font-face {
+@font-face {
     font-family: 'opensansBold';
     src: url('fonts/OpenSans.eot');
-    src: url('fonts/opensansBold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensansBold.woff') format('woff'),
-         url('fonts/opensansBold.ttf') format('truetype'),
-         url('fonts/opensansBold.svg#Sri-TSCRegular') format('svg');
+    src: url('fonts/opensansBold.eot?#iefix') format('embedded-opentype'), url('fonts/opensansBold.woff') format('woff'), url('fonts/opensansBold.ttf') format('truetype'), url('fonts/opensansBold.svg#Sri-TSCRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-   }
+}
 
- @font-face {
+@font-face {
     font-family: 'MyriadPro';
     src: url('fonts/MyriadPro-Regular.eot');
-    src: url('fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/MyriadPro-Regular.woff') format('woff'),
-         url('fonts/MyriadPro-Regular.ttf') format('truetype'),
-         url('fonts/MyriadPro-Regular.svg#Sri-TSCRegular') format('svg');
+    src: url('fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'), url('fonts/MyriadPro-Regular.woff') format('woff'), url('fonts/MyriadPro-Regular.ttf') format('truetype'), url('fonts/MyriadPro-Regular.svg#Sri-TSCRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-   }
- 
-  @font-face {
+}
+
+@font-face {
     font-family: 'MyriadPro-BoldIt';
     src: url('fonts/MyriadPro-BoldIt.eot');
-    src: url('fonts/MyriadPro-BoldIt.eot?#iefix') format('embedded-opentype'),
-         url('fonts/MyriadPro-BoldIt.woff') format('woff'),
-         url('fonts/MyriadPro-BoldIt.ttf') format('truetype'),
-         url('fonts/MyriadPro-BoldIt.svg#Sri-TSCRegular') format('svg');
+    src: url('fonts/MyriadPro-BoldIt.eot?#iefix') format('embedded-opentype'), url('fonts/MyriadPro-BoldIt.woff') format('woff'), url('fonts/MyriadPro-BoldIt.ttf') format('truetype'), url('fonts/MyriadPro-BoldIt.svg#Sri-TSCRegular') format('svg');
     font-weight: normal;
     font-style: normal;
-   }
+}
 
- 
- 
+
+
 body {
     width: 100%;
     height: 100%;
@@ -117,9 +105,8 @@ header {
     padding-right: 30px;
     /* margin: auto; */
     box-sizing: border-box;
-    
     z-index: 3;
-position: relative;
+    position: relative;
 }
 
 .main-data {
@@ -129,312 +116,441 @@ position: relative;
     position: relative;
     display: none;
 }
-.x-button{
-  background-image: url('images/x.png');
-background-repeat: no-repeat;
-background-size: 100%;
-width: 38px;
-height: 37px;
-margin: 7px;
-/* float: right; */
-position: absolute;
-right: 0;
-}
-.synopsis{
-  box-shadow: 10px 18px 21px 0.00px rgba(1, 1, 1, 0.43);
-width: 342px;
-height: 258px;
-background-color: white;
-text-align: left;
-font-family: OpenSans;
-color: #000000;
-font-size: 17px;
-font-weight: 400;
-line-height: 22px;
-overflow: hidden;
-padding: 7px 10px;
-display: inline-block;
-top: 0;
-vertical-align: top;
-margin-top: 30px;
-font-family: opensans;
-position: relative;
-}
- .syn-text::first-letter {
-  font-weight: bold;
-  font-size:20px;
-  
-}
- .learn-more{
-     color: #d31c5b;
-position: absolute;
-bottom: 4px;
-right: 9px;
-text-decoration: none;
- }
-.highlights-wrapper
-{
-  width: 454px;
-height: 100px;
-margin-left: 17px;
-display: inline-block;
-vertical-align: top;
-margin-top: 48px;
+
+.back-button {
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    font-size: 17px;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: 0px 0px;
+    padding-left: 15px;
+    /* IE 9 */ /* Chrome, Safari, Opera */
+    color: #ffffff;
 }
 
-.highlights-item{
-  width: 100px;
-margin-right: 10px;
-cursor: pointer;
-float: left;
-height: 141px;   
+.x-button {
+    background-image: url('images/x.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 38px;
+    height: 37px;
+    margin: 7px;
+    /* float: right; */
+    position: absolute;
+    right: 0;
 }
-.high-img{
- width: 90px;
-height: 90px;
-border-radius: 23px;
-background-color: black;
-border: 2px solid white;
-background-size: 100%;
-background-size: cover;
-right: 0;
-position: relative;
-transition: width 0.5s ,right 0.5s ;
-}
-  .selected{
-     width: 100px; 
- }
- .selected .high-img{border: 3px solid #d31c5b;
-width: 96px;
-height: 100px;
-right: 4px;
 
- }
-.high-title{
-    font-size: 12px;
-color: white;
-text-align: center;
-height: 32px;
-overflow: hidden;
-margin-bottom: 5px;
-margin-top: 2px;
-
-
+.synopsis.selectedsyn {
+   border: 3px solid #d31c5b;
 }
- .play{background-image: url('images/play.png');
-background-repeat: no-repeat;
-background-size: 100%;
-width: 88px;
-height: 92px;
-/* display: inline-block; */
-/* margin-top: 100px; */
-margin-left: 30px;
-/* float: right; */
-position: absolute;
-right: 50px;
-top: 131px;
- }
-.value-name{
-    font-size: 51px;
-text-shadow: 2px 2px #000;
-color: white;
-font-family: MyriadPro;
+
+.youtube-iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    top: 0px;
+    z-index: 3;
 }
-.desc-name{
+
+.youtube-iframe iframe {
+  display: block;
+  margin: auto;  
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.synopsis {
+    box-shadow: 10px 18px 21px 0.00px rgba(1, 1, 1, 0.43);
+    width: 342px;
+    height: 258px;
+    background-color: white;
+    text-align: left;
+    font-family: OpenSans;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    overflow: hidden;
+    padding: 7px 10px;
+    display: inline-block;
+    top: 0;
+    vertical-align: top;
+    margin-top: 30px;
+    font-family: opensans;
+    position: relative;
+}
+
+.syn-text::first-letter {
+    font-weight: bold;
     font-size: 20px;
-color: white;
-text-shadow: 2px 2px #000;
-font-family: MyriadPro-BoldIt;
 }
 
-.footer{
- 
-position: absolute;
-bottom: 0;
-height: 205px;
-width: 100%;
-position: absolute;
-padding-left: 36px;
-padding-right: 58px;
-/* margin: auto; */
-box-sizing: border-box;
-z-index: 1;
-
-}
-.main-data-footer{
-   width: 560px;
-float: left; 
+.learn-more {
+    color: #d31c5b;
+    position: absolute;
+    bottom: 4px;
+    right: 9px;
+    text-decoration: none;
 }
 
-.hand{
-background-image: url('images/touch.png');
-background-repeat: no-repeat;
-background-size: 100%;
-width: 204px;
-height: 88px;
-float: right;
-position: relative;
-right: -17px;
-cursor: pointer;
-
-}
- .hand-line{
-   background-image: url('images/line.png');
-background-repeat: no-repeat;
-background-size: 100%;
-width: 158px;
-height: 65px;
-float: right;
-right: -49px;
-position: relative;
-display: none;
-
- }
-
-.wikipedia_button{
-	height: 9.2px;
-position: relative;
-width: 28px;
-height: 28px;
-display: inline-block;
-vertical-align: bottom;
-margin-bottom: 4px;
+.highlights-wrapper {
+    width: 454px;
+    height: 100px;
+    margin-left: 17px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 48px;
 }
 
-.wikipedia_button img{
-	width: 28px;
-	height: 27.2px;
+.highlights-item {
+    width: 100px;
+    margin-right: 10px;
+    cursor: pointer;
+    float: left;
+    height: 141px;
+}
+
+.high-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 23px;
+    background-color: black;
+    border: 2px solid white;
+    background-size: 100%;
+    background-size: cover;
+    right: 0;
+    position: relative;
+    transition: width 0.5s,right 0.5s;
+}
+
+.selected {
+    width: 100px;
+}
+
+.selected .high-img {
+    border: 3px solid #d31c5b;
+    width: 96px;
+    height: 100px;
+    right: 4px;
+}
+
+.high-title {
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    height: 32px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+.play {
+    background-image: url('images/play.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 88px;
+    height: 92px;
+    /* display: inline-block; */
+    /* margin-top: 100px; */
+    margin-left: 30px;
+    /* float: right; */
+    position: absolute;
+    right: 50px;
+    top: 131px;
+}
+
+.value-name {
+    font-size: 51px;
+    text-shadow: 2px 2px #000;
+    color: white;
+    font-family: MyriadPro;
+}
+
+.desc-name {
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px #000;
+    font-family: MyriadPro-BoldIt;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 205px;
+    width: 100%;
+    position: absolute;
+    padding-left: 36px;
+    padding-right: 58px;
+    /* margin: auto; */
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.main-data-footer {
+    width: 560px;
+    float: left;
+}
+
+.hand {
+    background-image: url('images/touch.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 204px;
+    height: 88px;
+    float: right;
+    position: relative;
+    right: -17px;
+    cursor: pointer;
+}
+
+.hand-line {
+    background-image: url('images/line.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 158px;
+    height: 65px;
+    float: right;
+    right: -49px;
+    position: relative;
+    display: none;
+}
+
+.wikipedia_button {
+    height: 9.2px;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+}
+
+.wikipedia_button img {
+    width: 28px;
+    height: 27.2px;
     display: block;
 }
- 
- 
 
 
 
-.main-data .synopsis .learn-more,
-.main-data .synopsis .highlights-text{
-	display:none;
+
+
+.main-data .synopsis .learn-more, .main-data .synopsis .highlights-text {
+    display: none;
 }
 
-.main-data.point-selected .synopsis .learn-more,
-.main-data.point-selected .synopsis .highlights-text{
-	display:block;
+.main-data.point-selected .synopsis .learn-more, .main-data.point-selected .synopsis .highlights-text {
+    display: block;
 }
 
-.main-data.point-selected .synopsis .syn-text{
-	display:none;
+.main-data.point-selected .synopsis .syn-text {
+    display: none;
 }
 
- 
- /*********timeline**********/
- .timeline{
+
+/*********timeline**********/
+.timeline {
     clear: both;
-width: 100%;
-height: 50px;
-position: relative;
-/*top: 10px;*/
- }
- .dot{background-image: url('images/dot.png');
-background-repeat: no-repeat;
-background-size: 100%;
-width: 31px;
-height: 28px;
-background-size: 200%;
-background-position-x: 2px;
-position: absolute;
-left: 0;
-margin-top: 6px;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    /*top: 10px;*/
+}
 
- }
- .dot:hover{
-   background-position-x: -27px;
- }
- .pink{
+.dot {
+    background-image: url('images/dot.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 31px;
+    height: 40px;
+    background-size: 200%;
+    background-position-x: 2px;
+    position: absolute;
+    left: 0;
+    margin-top: 6px;
+}
+
+.dot:hover {
+    background-position-x: -27px;
+}
+
+.pink {
     background-image: url('images/broken.png');
-background-repeat: repeat-x;
-/* background-size: 100%; */
-height: 6px;
-width: 50%;
-float: right;
-margin-top: 17px;
- }
- .line{
- height: 3px;
-background-color: gray;
-width: 0;
-float: left;
-margin-top: 18px;
+    background-repeat: repeat-x;
+    /* background-size: 100%; */
+    height: 6px;
+    width: 50%;
+    float: right;
+    margin-top: 17px;
+}
 
+.line {
+    height: 3px;
+    background-color: gray;
+    width: 0;
+    float: left;
+    margin-top: 18px;
+    transition: width 10s linear;
+}
 
-transition: width 10s linear;
- }
- 
- /**********sidebar************/
- #sidebar{
-   background-color: black;
-width: 237px;
-height: 100%;
-position: absolute;
-right: -237px;
-top: 0;
-background-image: url('images/sidepanel.png');
-background-size: 100%;
+/**********sidebar************/
+#sidebar {
+    background-color: black;
+    width: 237px;
+    height: 100%;
+    position: absolute;
+    right: -237px;
+    top: 0;
+    background-repeat: no-repeat;
+    background-image: url('images/sidepanel.png');
+    background-size: 100%;
+    transition: right 0.5s linear;
+    z-index: 3;
+}
 
-transition: right 0.5s linear;
+.x {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
-        
- }
- .x{
-     width: 65px;
-height: 65px;
-position: absolute;
-top: 0;
-right: 0;
- }
- input{
- border: none;
-position: relative;
-top: 80px;
-left: 40px;
-width: 135px;
-background-color: transparent;
- }
- .options{
-     
- }
- .option-item{
-     font-family: MyriadPro;
- }
- 
- .dot .dot_discription{
-	 display: none; 
-width: 245px;
-border: 3px solid white;
-background-color: #e6e7e8;
-height: 52px;
-overflow: hidden;
-font-family: OpenSans;
-font-size: 12px;
-margin-left: 17px;
-margin-top: 13px;
-z-index: 1;
-position: relative;
- } 
- 
- .dot:hover .dot_discription{
-	display:block;
- }
- 
- ul{
-     width: 134px !important;
-font-size: 15px !important;
- }
- 
- .homepage{
-     background-image: url('images/home.jpg');
-width: 100%;
-height: 100%;
-background-size: contain;
-background-repeat: no-repeat;
-background-position: center;
- }
+input {
+    border: none;
+    position: relative;
+    top: 80px;
+    left: 40px;
+    width: 135px;
+    background-color: transparent;
+}
+
+.options {
+}
+
+.option-item {
+    font-family: MyriadPro;
+}
+
+.dot .dot_discription {
+    display: none;
+    width: 245px;
+    border: 3px solid white;
+    background-color: #e6e7e8;
+    height: 52px;
+    overflow: hidden;
+    font-family: OpenSans;
+    font-size: 12px;
+    margin-left: 17px;
+    margin-top: 13px;
+    z-index: 1;
+    position: relative;
+}
+
+.dot:hover .dot_discription {
+    display: block;
+}
+
+ul {
+    width: 134px !important;
+    font-size: 15px !important;
+}
+
+.homepage {
+    background-image: url('images/home.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.popup-oops {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+}
+
+.popup-oops > div {
+    width: 674px;
+    height: 444px;
+    margin: auto;
+    background-image: url("images/popup-oops.png");
+    z-index: 4;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.date-point {
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    top: 27px;
+    font-size: 10px;
+    left: -2px;
+}
+
+a.logo-ref:link {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.random a:link {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.magnifying-glass {
+    width: 20px;
+    height: 21px;
+    position: absolute;
+    right: 38px;
+    top: 80px;
+    cursor: pointer;
+}
+
+.share-item {
+    width: 172px;
+    height: 52px;
+    position: absolute;
+    top: 121px;
+    left: 32px;
+    cursor: pointer;
+}
+
+.create-new {
+    width: 172px;
+    height: 52px;
+    position: absolute;
+    top: 176px;
+    left: 32px;
+    cursor: pointer;
+}
+
+.random {
+    width: 172px;
+    height: 52px;
+    position: absolute;
+    top: 230px;
+    left: 32px;
+    cursor: pointer;
+}
+
+.popup .x-popup {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 200px;
+    width: 200px;
+}

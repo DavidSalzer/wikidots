@@ -19,6 +19,11 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <meta property="og:title" content="<?php echo $row["valueName"]; ?>" />
+        <meta property="og:site_name" content="wikidocs" />
+        <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
+        <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
+        <meta property="og:locale" content="en_US" /> 
         <title>Wikidots</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -40,15 +45,26 @@
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        
+        <div style="position: absolute; color: #fff; font-size: 15px;">
+        <?php print_r($row);?>
+            </div>
+      
+		<div class="popup popup-oops">
+			<div>
+				<div class="x-popup"></div>
+			</div>
+		</div>
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
         <div class="main-wrapper">
             <header>
-                <div class="logo"></div>
+                <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
                 <div class="menu" onclick="showSidebar()"></div>
             </header>
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                 <div class="main-data">
+                    <div class="back-button" style="display: none;">back</div>
                     <div class="x-button"></div>
                     <div class="synopsis">
                         <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
@@ -65,9 +81,9 @@
                         <?php endif ?>
                         <?php endfor ?>
                     </div>
-                    <div class="play">
-
-                    </div>
+                    <?php if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
+                        <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"></div>
+                    <?php endif?>
                 </div>
                 </div>
                 <div class="touch-wrapper">
@@ -75,7 +91,7 @@
                     <div class="hand-line" ></div>
                 </div>
                 
-
+               
             </div>
             <div class="footer">
                     <div class="main-data-footer">
@@ -94,9 +110,10 @@
                             $endPrecent=($end-$start)/($now-$start)*100;
                             $importantDate=($ImportantDate-$start)/($now-$start)*100;
                         ?>
-                        <div class="dot dot_start" onmouseover="showDescOnDot(this)" style="left:<?php echo $startPrecent; ?>%"><div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
-                        <div class="dot dot_import" onmouseover="showDescOnDot(this)" style="left:<?php echo $importantDate; ?>%"><div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
-                        <div class="dot dot_end" onmouseover="showDescOnDot(this)" style="left:<?php echo $endPrecent; ?>%"><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
+                       
+                        <div class="dot dot_start" onmouseover="showDescOnDot(this)" style="left:<?php echo $startPrecent; ?>%"><div class="date-point"><?php echo $start ?></div> <div class="dot_discription"><?php echo $row["start_text"]; ?></div></div>
+                        <div class="dot dot_import" onmouseover="showDescOnDot(this)" style="left:<?php echo $importantDate; ?>%"><div class="date-point"><?php echo $ImportantDate ?></div> <div class="dot_discription"><?php echo $row["importantDate_taxt"]; ?></div></div>
+                        <div class="dot dot_end" onmouseover="showDescOnDot(this)" style="left:<?php echo $endPrecent; ?>%"><div class="date-point"><?php echo $end ?></div><div class="dot_discription"><?php echo $row["end_text"]; ?></div></div>
                         <div style="padding-left: 20px;">
                             <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
                             <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>
@@ -108,11 +125,19 @@
                 <div class="x" onclick="hideSidebar()"></div>
                 <form class="search-form">
                     <input class="search" type="text" />
+                    <div class="magnifying-glass"></div>
+                    <div class="create-new"></div>
+                    <div class="share-item"></div>
+                    <div class="random"> <a href="/?id=The_Beatles"></a></div>
                 </form>
                 <div class="options">
                     <div class="option-item"></div>
                 </div>
             </div>
+        </div>
+
+        <div class="youtube-iframe" style="display: none;">
+            <iframe class="the-iframe" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         </div>
 
     </body>
