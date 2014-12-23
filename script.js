@@ -13,6 +13,13 @@ $(function () {
         }
 
     });
+	setInterval(function(){
+		$(".main-data").fadeIn();
+		$(".hand-line").fadeIn();
+		$(".popup-oops").hide();
+		hideSidebar();
+	},1000)
+	
     $(".x-button").click(function () {
         $(".main-data").fadeOut();
         $(".hand-line").fadeOut();
