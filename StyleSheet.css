@@ -645,6 +645,8 @@ body.home-page .give_dots{
 
 body.home-page  .highlights-wrapper{
 	width: 500px;
+	position: absolute;
+	bottom: 28px;
 }
 
 body.home-page  .homepage_headline_text{

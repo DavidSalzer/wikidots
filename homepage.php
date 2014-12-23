@@ -1,3 +1,12 @@
+<?php
+   
+    $dbname = "wikidots";
+    $host = "82.80.210.144";  
+    $user = "wikidots";
+    $pass = "wagoiplrkyjdnvtxemcq"; 
+    $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,8 +14,13 @@
         <title>Wikidots</title>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-		<script>
-			var values=[];
+        <script>
+            <?php
+                $statement = $db->prepare("select `valueName`,`valueID` from value");
+                $statement->execute();
+                $table = $statement->fetchAll(PDO::FETCH_ASSOC);
+                echo "var values=".json_encode($table).";";
+            ?>
             var valuesName=[];
             values.forEach(function(element){
                 valuesName.push(element.valueName);
@@ -39,18 +53,7 @@
 					<div class="x-button"></div>
 					<img class="homepage_headline_text" src="images/homepage_headline_text_19.png" />
 					<img class="homepage_laptop" src="images/laptop-18.png" />
-
-                </div>
-                </div>
-                <div class="touch-wrapper">
-                    <div class="hand"></div>
-                    <div class="hand-line" ></div>
-                </div>
-                
-               
-            </div>
-            <div class="footer">
-				<div class="highlights-wrapper">
+					<div class="highlights-wrapper">
 						<img class="give_dots" src="images/give dots.png"/>
                         <div class="highlights-item" data-id="The_Beatles">
                             <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG')"></div>
@@ -65,7 +68,32 @@
                             <div class="high-title">Stephen Hawking</div>
                         </div>
 
-				</div>
+					</div>
+                </div>
+                </div>
+                <div class="touch-wrapper">
+                    <div class="hand"></div>
+                    <div class="hand-line" ></div>
+                </div>
+                
+               
+            </div>
+            <div class="footer">
+
+            </div>
+			
+			<div id="sidebar">
+                <div class="x" onclick="hideSidebar()"></div>
+                <form class="search-form">
+                    <input class="search" type="text" />
+                    <div class="magnifying-glass"></div>
+                    <div class="create-new"></div>
+                    <div class="share-item"></div>
+                    <div class="random"> <a href="/?id=The_Beatles"></a></div>
+                </form>
+                <div class="options">
+                    <div class="option-item"></div>
+                </div>
             </div>
 
         </div>
