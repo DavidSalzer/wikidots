@@ -20,14 +20,15 @@ $(function () {
 
     $(".play").click(function () {
         $(".youtube-iframe").show();
-        var f =  $(".play").attr("vidio-url");
-        $(".play").attr("src",f);
-
+        var url = $(".play").attr("vidio-url");
+        var v = url.split('v=')[1];
+        $("#youtubeIframe").attr("src", "//www.youtube.com/embed/" + v);
+        ////www.youtube.com/embed/PBN0nqQX5xo
     });
 
 
     $selectedHighlights = null;
-    $("body.value-page .highlights-item .high-img").click(function () {
+    $(".highlights-item .high-img").click(function () {
         if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
             $(".highlights-item").removeClass("selected");
             $(".synopsis").removeClass("selectedsyn");
@@ -49,11 +50,6 @@ $(function () {
                 $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").show();');
         }
     })
-	
-	$("body.home-page .highlights-item .high-img").click(function () {
-		$selectedHighlights = $(this).parent(".highlights-item");
-		window.location = "/?id="+$selectedHighlights.attr("data-id");
-	});
 
     $(".magnifying-glass").click(function () {
         searchChange();

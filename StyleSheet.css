@@ -107,7 +107,7 @@ background-size: 100% 100%;
 margin-right: 10px;
 background-position-y: -10px;
 
-   
+   cursor: pointer;
 }
 .main-data-wrapper {
    width: 100%;
@@ -140,16 +140,18 @@ right: 0;
 }
 
 .back-button {
-    position: absolute;
-    top: 6px;
-    left: 12px;
-    font-size: 17px;
-    background-repeat: no-repeat;
-    background-size: 10px 10px;
-    background-position: 0px 0px;
-    padding-left: 15px;
-    /* IE 9 */ /* Chrome, Safari, Opera */
-    color: #ffffff;
+ position: absolute;
+top: 0;
+left: 12px;
+font-size: 17px;
+background-repeat: no-repeat;
+/* background-size: 10px 10px; */
+background-position: 0px -4px;
+padding-left: 15px;
+background-image: url(images/back.png);
+width: 86px;
+height: 42px;
+color: #ffffff;
 }
 
 .x-button {
@@ -278,13 +280,11 @@ right: 0;
     background-size: 100%;
     width: 88px;
     height: 92px;
-    /* display: inline-block; */
-    /* margin-top: 100px; */
-    margin-left: 30px;
-    /* float: right; */
+
     position: absolute;
-    right: 50px;
+    right: 25px;
     top: 131px;
+    cursor: pointer;
 }
 
 .value-name {
