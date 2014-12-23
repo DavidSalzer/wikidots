@@ -27,6 +27,7 @@
 			</div>
 		</div>
         <div class="main-background" style="background-image: url('images/main-background.jpg')"></div>
+	    <div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="#" class="logo-ref"></a></div>
