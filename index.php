@@ -1,17 +1,19 @@
 <?php
-    $valueID = isset($_GET['id'])?$_GET['id']:"urassic_World";
+    $valueID = isset($_GET['id'])?$_GET['id']:"";
     
     $dbname = "wikidots";
     $host = "82.80.210.144";  
     $user = "wikidots";
     $pass = "wagoiplrkyjdnvtxemcq"; 
     $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    
     $statement = $db->prepare("select * from value where valueID = :valueID");
     $statement->execute(array(':valueID' => $valueID));
     $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
-    if ($row==null)
-        die("404");
+    if ($row==null){
+  header("Location: homepage.php");
+  die();
+ }
+
     //print_r($row);
 ?>
 
@@ -44,11 +46,8 @@
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+    <body class="value-page">
      
-        <div style="position: absolute; color: #fff; font-size: 15px;">
-        <?php print_r($row);?>
-            </div>
       
 		<div class="popup popup-oops">
 			<div>

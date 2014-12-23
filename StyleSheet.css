@@ -343,7 +343,7 @@ cursor: pointer;
     background-repeat: no-repeat;
     background-size: 100%;
     width: 204px;
-    height: 88px;
+    height: 98px;
     float: right;
     position: relative;
     right: -17px;
@@ -635,4 +635,26 @@ a.logo-ref:link {
     background-image: url("images/filtercube.png");
     background-repeat: repeat;
     top: 0;
+    left: 0;
+}
+body.home-page .give_dots{
+	float: left;
+	width: 150px;
+	margin-top: -24px;
+}
+
+body.home-page  .highlights-wrapper{
+	width: 500px;
+}
+
+body.home-page  .homepage_headline_text{
+	width: 470px;
+	position: absolute;
+}
+
+body.home-page  .homepage_laptop{
+	width: 420px;
+	position: absolute;
+	right: 0px;
+	bottom: -44px;
 }

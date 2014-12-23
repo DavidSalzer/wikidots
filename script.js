@@ -13,6 +13,13 @@ $(function () {
         }
 
     });
+	setTimeout(function(){
+		$(".main-data").fadeIn();
+		$(".hand-line").fadeIn();
+		$(".popup-oops").hide();
+		hideSidebar();
+	},1000)
+	
     $(".x-button").click(function () {
         $(".main-data").fadeOut();
         $(".hand-line").fadeOut();
@@ -28,7 +35,7 @@ $(function () {
 
 
     $selectedHighlights = null;
-    $(".highlights-item .high-img").click(function () {
+    $("body.value-page .highlights-item .high-img").click(function () {
         if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
             $(".highlights-item").removeClass("selected");
             $(".synopsis").removeClass("selectedsyn");
@@ -50,6 +57,11 @@ $(function () {
                 $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").fadeIn();');
         }
     })
+	
+	$("body.home-page .highlights-item .high-img").click(function () {
+		$selectedHighlights = $(this).parent(".highlights-item");
+		window.location = "/?id="+$selectedHighlights.attr("data-id");
+	});
 
     $(".magnifying-glass").click(function () {
         searchChange();
