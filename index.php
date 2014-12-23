@@ -62,20 +62,20 @@
 
 
 
-        <div class="popup popup-oops">
+        <!--<div class="popup popup-oops">
             <div>
                 <div class="x-popup"></div>
                 <div class="create-new-text" onclick=" showEdit()"></div>
 
             </div>
-        </div>
-        <div class="popup popup-editor">
+        </div>-->
+        <div class="popup popup-editor popup-oops">
             <div>
                 <div class="x-popup"></div>
 
 				<form id="send-email">
-					<textarea></textarea>
-					<input type="image" src="images/submit-button-21.png" alt="Submit Form" />
+					<input type="email" name="email"></textarea>
+					<input class="sendbtn" type="image" src="images/submit-button-21.png" alt="Submit Form" />
 				</form>
 
             </div>

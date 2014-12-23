@@ -5,7 +5,7 @@
 	$mail->CharSet = 'UTF-8';
 
 	
-	$mail->SetFrom('<no-reply@wikidot.com>', 'wikidot');
+	//$mail->SetFrom('<no-reply@wikidot.com>', 'wikidot');
 	$mail->AddAddress("ldaniel@cambium.co.il");
 	$mail->AddAddress("elad@pixidigital.com");
 	

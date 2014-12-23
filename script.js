@@ -124,9 +124,9 @@ $(function () {
 		$.ajax({
 		  type: "POST",
 		  url: "getEmail.php",
-		  data: {message:$(this).find("textarea").val()},
+		  data: {message:$(this).find("input[name=email]").val()},
 		  success: function(){
-			alert("aa");
+			alert("message send");
 		  },
 		});
 		return false;

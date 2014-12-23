@@ -478,14 +478,14 @@ background-position: -30px -20px;
     right: 0;
 }
 
-input {
+#sidebar input {
     border: none;
-position: relative;
-top: 81px;
-left: 19px;
-width: 172px;
-background-color: transparent;
-height: 21px;
+	position: relative;
+	top: 81px;
+	left: 19px;
+	width: 172px;
+	background-color: transparent;
+	height: 21px;
 }
 
 .options {
@@ -554,20 +554,20 @@ ul {
   
 }
 
-form#send-email textarea{
-	width: 304px;
-	height: 113px;
+form#send-email input[name=email]{
+	width: 216px;
 	position: absolute;
-	bottom: 95px;
-	left: 50px;
+	top: 242px;
+	left: 47px;
+	height: 30px;
 }
 
-form#send-email input{
+form#send-email input.sendbtn{
 	width: 146px;
-	height: 48px;
 	position: absolute;
-	top: 235px;
-	left: 375px;
+	top: 233px;
+	left: 262px;
+	height: 56px;
 }
 
 
@@ -615,39 +615,39 @@ a.logo-ref:link {
 }
 
 .magnifying-glass {
-    width: 20px;
-    height: 21px;
-    position: absolute;
-    right: 38px;
-    top: 80px;
-    cursor: pointer;
+	width: 26px;
+	height: 26px;
+	position: absolute;
+	right: 18px;
+	top: 80px;
+	cursor: pointer;
 }
 
 .share-item {
-    width: 172px;
-    height: 52px;
-    position: absolute;
-    top: 121px;
-    left: 32px;
-    cursor: pointer;
+	width: 191px;
+	height: 67px;
+	position: absolute;
+	top: 131px;
+	left: 32px;
+	cursor: pointer;
 }
 
 .create-new {
-    width: 172px;
-    height: 52px;
-    position: absolute;
-    top: 176px;
-    left: 32px;
-    cursor: pointer;
+	width: 172px;
+	height: 68px;
+	position: absolute;
+	top: 200px;
+	left: 32px;
+	cursor: pointer;
 }
 
 .random {
-    width: 172px;
-    height: 52px;
-    position: absolute;
-    top: 230px;
-    left: 32px;
-    cursor: pointer;
+	width: 186px;
+	height: 68px;
+	position: absolute;
+	top: 266px;
+	left: 32px;
+	cursor: pointer;
 }
 
 .popup .x-popup {
