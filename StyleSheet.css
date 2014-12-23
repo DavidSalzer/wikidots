@@ -614,3 +614,12 @@ a.logo-ref:link {
     background-repeat: repeat;
     top: 0;
 }
+body.home-page .give_dots{
+	float: left;
+	width: 150px;
+	margin-top: -24px;
+}
+
+body  .highlights-wrapper{
+	width: 500px;
+}
