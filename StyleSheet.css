@@ -658,6 +658,8 @@ body.home-page .give_dots{
 
 body.home-page  .highlights-wrapper{
 	width: 500px;
+	position: absolute;
+	bottom: 28px;
 }
 
 body.home-page  .homepage_headline_text{
@@ -670,4 +672,8 @@ body.home-page  .homepage_laptop{
 	position: absolute;
 	right: 0px;
 	bottom: -44px;
+}
+
+body.home-page .main-data {
+	background-color: rgba(0,0,0,0.7);
 }
