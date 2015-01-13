@@ -27,8 +27,13 @@
         <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
         <meta property="og:locale" content="en_US" />
         <title>Wikidots</title>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+        <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="touch.timeline/touch.timeline.light.css" type="text/css" />
+		
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script src="touch.timeline/touch.timeline.js"></script>
         <script>
             <?php
                 $statement = $db->prepare("select `valueName`,`valueID` from value");
@@ -43,8 +48,7 @@
         </script>
 
         <script src="script.js"></script>
-        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-        <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+
 
         <!-- Google Analytics -->
         <script type="text/javascript">
@@ -149,7 +153,7 @@
                     <div class="desc-name"><?php echo $row["Description"]; ?></div>
                 </div>
 
-                <div class="timeline">
+                <!--<div class="timeline">
                     <?php
                         $start= $row["start"]; 
                         $end= $row["end"]; 
@@ -167,8 +171,35 @@
                         <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
                         <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>
                     </div>
-                </div>
+                </div>-->
+				<?php
+                        $start= $row["start"]; 
+                        $end= $row["end"]; 
+                        $importantDate= $row["ImportantDate"]; 
+                        $now=2015;
+                ?>
+				<div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
+					<div class="timeline-event" data-time="<?php echo  $start?>">
+						<div class="timeline-title"><?php echo  $start?></div>
+						<div class="timeline-content">
+							<p><?php echo $row["start_text"]; ?></p>
+						</div>
+					</div>
+					<div class="timeline-event" data-time="<?php echo  $importantDate?>">
+						<div class="timeline-title"><?php echo  $importantDate?></div>
+						<div class="timeline-content">
+							<p><?php echo $row["importantDate_taxt"]; ?></p>
+						</div>
+					</div>
+					<div class="timeline-event" data-time="<?php echo  $end?>">
+						<div class="timeline-title"><?php echo  $end?></div>
+						<div class="timeline-content">
+							<p><?php echo $row["end_text"]; ?></p>
+						</div>
+					</div>
+				</div>
             </div>
+
 
             <div id="sidebar">
                 <div class="x" onclick="hideSidebar()"></div>

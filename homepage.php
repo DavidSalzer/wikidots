@@ -81,7 +81,8 @@
                 </form>
                 <div class="txt"></div>
                  <div class="share-wrapper">
-                <div class="fb-like" data-href="https://www.facebook.com/wikidots" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+                
+                     <div class="fb-like" data-href="https://www.facebook.com/wikidots" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
             </div>
             </header>
             <div class="main-data-wrapper">
