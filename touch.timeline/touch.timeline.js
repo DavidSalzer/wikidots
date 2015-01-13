@@ -37,8 +37,8 @@
 			this.el.attr('id', this.id);
 			
 			// HTML
-			var html = "<div class=\"timeline-body\">\n";
-			html += "\t<div class=\"end-time-background\"></div>\n";
+			var html = "\t<div class=\"end-time-background\"></div>\n<div class=\"timeline-body\">\n";
+			//html += "\t<div class=\"end-time-background\"></div>\n";
 			html += "\t<div class=\"timeline-draggable nickys-draggable\"></div>\n";
 			html += "</div>\n";
 			html += "<div class=\"timeline-arrow\"></div>\n";
@@ -104,6 +104,7 @@
 			}
 			//daniel- sart
 				$(".timeline-wrap").find('.end-time-background').width($(".timeline-wrap").width()-left-10);
+                $(".timeline-wrap").find('.timeline-body').width(left*1+10);
 			//daniel - end
 			
 			// Position titles
