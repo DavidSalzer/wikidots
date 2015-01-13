@@ -25,7 +25,7 @@ $(function () {
 
     $(".play").click(function () {
          var id =getParameterByName('id');
-        _gaq.push(['_trackEvent','play click',id ]);
+        _gaq.push(['_trackEvent', 'play click', id, ' ']);
 
         $(".youtube-iframe").fadeIn();
         var url = $(".play").attr("vidio-url");
@@ -37,16 +37,15 @@ $(function () {
     $('body').on('click','.learn-more',function(){
         var id =$(this).parent(".synopsis").attr("data-id");
    
-        _gaq.push(['_trackEvent', 'learn more',id ]);
+       _gaq.push(['_trackEvent', 'learn more', id, ' ']);
     })
     $('body').on('click','.wikipedia_button',function(){
         var id =getParameterByName('id');
    
-        _gaq.push(['_trackEvent', 'wikipedia button click',id ]);
+        _gaq.push(['_trackEvent', 'wikipedia button click',id, ' ']);
     })  
     $selectedHighlights = null;
     $("body.value-page .highlights-item .high-img").click(function () {
-       //  _gaq.push(['_trackEvent', 'Thumbs clicks - value page', ]);
         if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
             $(".highlights-item").removeClass("selected");
             $(".synopsis").removeClass("selectedsyn");
@@ -55,7 +54,8 @@ $(function () {
             $(".back-button").hide();
         }
         else {
-            $(this).parent(".highlights-item").attr('data-id')
+            var id =$(this).parent(".highlights-item").attr('data-id');
+            _gaq.push(['_trackEvent', 'Thumbs clicks - value page', id, ' ']);
             $selectedHighlights = $(this).parent(".highlights-item");
             $(".main-data").addClass("point-selected");
             $(".synopsis").addClass("selectedsyn");
@@ -73,8 +73,8 @@ $(function () {
 
     $("body.home-page .highlights-item .high-img").click(function () {
         $selectedHighlights = $(this).parent(".highlights-item");
-        _gaq.push(['_trackEvent', 'Thumbs clicks - homepage', $selectedHighlights.attr("data-id")]);
-     //   _trackEvent('Thumbs clicks', $selectedHighlights.attr("data-id"));
+        var id =$selectedHighlights.attr("data-id");
+        _gaq.push(['_trackEvent', 'Thumbs clicks - homepage', id, ' ']);
         window.location = "/?id=" + $selectedHighlights.attr("data-id");
     });
 
@@ -91,8 +91,8 @@ $(function () {
     })
 
     $(".share-item").click(function () {
-        // var v = window.location.toString(window.location.href);
-         _gaq.push(['_trackEvent', 'share',getParameterByName('id')]);
+         var id =getParameterByName('id');
+        _gaq.push(['_trackEvent', 'share', id, ' ']);
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + window.location.href);
         //window.open('https://www.facebook.com/sharer/sharer.php?u=http://wikidots.com/?id=Albert_Einstein');
 
@@ -168,7 +168,8 @@ function showSidebar() {
 
 
 function showEdit(){
-     _gaq.push(['_trackEvent', 'edit',getParameterByName('id')]);
+    var id =getParameterByName('id');
+    _gaq.push(['_trackEvent', 'edit', id, ' ']);
     $(".popup").hide()
     $(".popup-editor").fadeIn()
 }

@@ -47,39 +47,42 @@
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
 
         <!-- Google Analytics -->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <script type="text/javascript">
+
             
-            ga('create', 'UA-57534000-1', 'auto');
-            ga('send', 'pageview');
-            
-             var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-65432-1']);
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-57534000-1']);
             _gaq.push(['_trackPageview']);
+            
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            
+          //  var pageTracker = _gat._getTracker('UA-57534000-1');
+         //   pageTracker._trackPageview();
         </script>
     </head>
     <body class="value-page">
 
 
 
-        <!--<div class="popup popup-oops">
-            <div>
-                <div class="x-popup"></div>
-                <div class="create-new-text" onclick=" showEdit()"></div>
-
-            </div>
-        </div>-->
+                    <!--<div class="popup popup-oops">
+                        <div>
+                            <div class="x-popup"></div>
+                            <div class="create-new-text" onclick=" showEdit()"></div>
+            
+                        </div>
+                    </div>-->
         <div class="popup popup-editor popup-oops">
             <div>
                 <div class="x-popup"></div>
 
-				<form id="send-email">
-					<input type="email" name="email"></textarea>
-					<input class="sendbtn" type="image" src="images/submit-button-21.png" alt="Submit Form" />
-				</form>
+                <form id="send-email">
+                    <input type="email" name="email"></textarea>
+                    <input class="sendbtn" type="image" src="images/submit-button-21.png" alt="Submit Form" />
+                </form>
 
             </div>
         </div>
