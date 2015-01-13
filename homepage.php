@@ -33,19 +33,25 @@
         <!-- Google Analytics -->
         <script type="text/javascript">
 
+
+
+
             
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-57534000-1']);
-            _gaq.push(['_trackPageview']);
             
-            (function() {
-              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
             
-           // var pageTracker = _gat._getTracker('UA-57534000-1');
-//pageTracker._trackPageview();
+            
+                        var _gaq = _gaq || [];
+                        _gaq.push(['_setAccount', 'UA-57534000-1']);
+                        _gaq.push(['_trackPageview']);
+            
+                        (function() {
+                          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                        })();
+            
+                       // var pageTracker = _gat._getTracker('UA-57534000-1');
+            //pageTracker._trackPageview();
         </script>
     </head>
     <body class="home-page">
@@ -63,12 +69,19 @@
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="#" class="logo-ref"></a></div>
-                <div class="menu" onclick="showSidebar()"></div>
+                <div class="menu" style="display: none;" onclick="showSidebar()"></div>
+                <form class="search-form">
+                    <input class="search" type="text" />
+                    <div class="magnifying-glass"></div>
+                 
+                </form>
+                <div class="txt"></div>
             </header>
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                     <div class="main-data">
-                        <img class="homepage_headline_text" src="images/homepage_headline_text_19.png" />
+                        <div class="help"></div>
+                        <!--<img class="homepage_headline_text" src="images/homepage_headline_text_19.png" />
                         <img class="homepage_laptop" src="images/laptop-18.png" />
                         <div class="highlights-wrapper">
                             <img class="give_dots" src="images/give dots.png" />
@@ -85,14 +98,66 @@
                                 <div class="high-title">Stephen Hawking</div>
                             </div>
 
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="touch-wrapper">
                     <div class="hand"></div>
                     <div class="hand-line"></div>
                 </div>
-
+                <div class="top-dots-wrapper">
+                    <div class="top-dots-title"></div>
+                    <div class="top-dots-list">
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                        <div class="top-dot-item">
+                            <div class="highlights-item" data-id="Stephen_Hawking">
+                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
+                                <div class="high-title">Stephen Hawking</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="footer">
