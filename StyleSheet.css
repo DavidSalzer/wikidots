@@ -250,10 +250,14 @@ header {
 
 .highlights-item {
     width: 100px;
-    margin-right: 23px;
+    margin-right: 10px;
     cursor: pointer;
     float: left;
     height: 141px;
+}
+
+.home-page .highlights-item {
+    margin-right: 23px;
 }
 
 .high-img {
@@ -382,6 +386,9 @@ header {
     display: inline-block;
     vertical-align: bottom;
     margin-bottom: 4px;
+}
+.wikipedia_button:hover{
+    opacity: 0.8;
 }
 
 .wikipedia_button img {
@@ -738,16 +745,17 @@ body.home-page .main-data {
 }
 
 .home-page .search {
-  /* background-image: url('images/searchbar-home.png'); */
-width: 252px;
-height: 19px;
-float: right;
-/* position: absolute; */
-margin-right: 57px;
-position: relative;
-z-index: 10;
-top: 10px;
-border: none;
+    /* background-image: url('images/searchbar-home.png'); */
+    width: 257px;
+    height: 19px;
+    float: right;
+    /* position: absolute; */
+    margin-right: 57px;
+    position: relative;
+    z-index: 1;
+    top: 10px;
+    border: none;
+    text-indent: 10px;
 }
 
 .txt {
@@ -775,9 +783,35 @@ cursor: pointer;
     opacity: 0.8;
 }
 .ui-widget-content{
-    width: 300px !important;
+    width: 280px !important;
 min-height: 0;
 max-height: 300px;
 overflow-y: auto;
 overflow-x: hidden;
 }
+
+.home-page .share-wrapper{
+   position: relative;
+bottom: 0;
+height: 45px;
+width: 300px;
+/* right: 0px; */
+float: right;
+margin-right: 12px;
+top: 11px;
+z-index: 10;
+}
+.share-wrapper{
+    position: relative;
+bottom: 0;
+height: 45px;
+width: 300px;
+/* right: 0px; */
+float: right;
+/* margin-right: 174px; */
+top: 12px;
+top: 6px;
+z-index: 10;
+right: 0;
+}
+.fb_iframe_widget{float: right}
