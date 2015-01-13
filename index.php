@@ -33,7 +33,7 @@
 		
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-		<script src="touch.timeline/touch.timeline.js"></script>
+		<!--<script src="touch.timeline/touch.timeline.js"></script>-->
         <script>
             <?php
                 $statement = $db->prepare("select `valueName`,`valueID` from value");
@@ -53,20 +53,32 @@
         <!-- Google Analytics -->
         <script type="text/javascript">
 
+
             
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-57534000-1']);
-            _gaq.push(['_trackPageview']);
             
-            (function() {
-              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
+               var _gaq = _gaq || [];
+               _gaq.push(['_setAccount', 'UA-57534000-1']);
+               _gaq.push(['_trackPageview']);
             
-          //  var pageTracker = _gat._getTracker('UA-57534000-1');
-         //   pageTracker._trackPageview();
+               (function() {
+                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+            
+             //  var pageTracker = _gat._getTracker('UA-57534000-1');
+            //   pageTracker._trackPageview();
         </script>
+
+         <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.0";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
     </head>
     <body class="value-page">
 
@@ -95,14 +107,18 @@
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
-                <div class="menu" onclick="showSidebar()"></div>
+                <!--<div class="menu" onclick="showSidebar()"></div>-->
                 <div class="menu edit" onclick="showEdit()"></div>
+
+                <div class="share-wrapper">
+                    <div class="fb-share-button" data-href="http://wikidots.com?id=<?php echo $row["valueID"]; ?>" data-layout="button"></div>
+                </div>
             </header>
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                     <div class="main-data">
                         <div class="back-button" style="display: none;"></div>
-                        <div class="x-button"></div>
+                        <!--<div class="x-button"></div>-->
                         <div class="synopsis">
                             <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
                             <div class="highlights-text"></div>
@@ -141,7 +157,7 @@
                     <div class="desc-name"><?php echo $row["Description"]; ?></div>
                 </div>
 
-                <!--<div class="timeline">
+                <div class="timeline">
                     <?php
                         $start= $row["start"]; 
                         $end= $row["end"]; 
@@ -159,14 +175,14 @@
                         <div class="line" style="width: <?php echo $endPrecent; ?>%;"></div>
                         <div class="pink" style="width: <?php echo 100-$endPrecent; ?>%;"></div>
                     </div>
-                </div>-->
+                </div>
 				<?php
                         $start= $row["start"]; 
                         $end= $row["end"]; 
                         $importantDate= $row["ImportantDate"]; 
                         $now=2015;
                 ?>
-				<div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
+				<!--<div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
 					<div class="timeline-event" data-time="<?php echo  $start?>">
 						<div class="timeline-title"><?php echo  $start?></div>
 						<div class="timeline-content">
@@ -185,7 +201,7 @@
 							<p><?php echo $row["end_text"]; ?></p>
 						</div>
 					</div>
-				</div>
+				</div>-->
             </div>
 
 
