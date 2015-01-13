@@ -6,6 +6,10 @@
     $pass = "wagoiplrkyjdnvtxemcq"; 
     $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     
+	$statement = $db->prepare("SELECT `value`.* FROM `front` join `value` on `value`.`valueID`= `front`.`valueID` ORDER BY `order` limit 8");
+    $statement->execute();
+    $homeValue = $statement->fetchAll(PDO::FETCH_ASSOC);
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,54 +120,14 @@
                 <div class="top-dots-wrapper">
                     <div class="top-dots-title"></div>
                     <div class="top-dots-list">
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
-                        <div class="top-dot-item">
-                            <div class="highlights-item" data-id="Stephen_Hawking">
-                                <div class="high-img" style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg')"></div>
-                                <div class="high-title">Stephen Hawking</div>
-                            </div>
-                        </div>
+						<?php foreach ( $homeValue as  $value ): ?>
+							<div class="top-dot-item">
+								<div class="highlights-item" data-id="<?php echo $value["valueID"]?> ">
+									<div class="high-img" style="background-image: url('<?php echo $value["imgUrl"]?>')"></div>
+									<div class="high-title"><?php echo $value["valueName"]?></div>
+								</div>
+							</div>
+						<?php endforeach ?>
                     </div>
                 </div>
 
