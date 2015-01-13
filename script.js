@@ -63,7 +63,8 @@ $(function () {
             $(".highlights-item").removeClass("selected");
             $selectedHighlights.addClass("selected");
             $(".main-data.point-selected .synopsis .highlights-text").html($selectedHighlights.attr("data-description"));
-             $(".main-data.point-selected .synopsis").attr('data-id',$selectedHighlights.attr("data-id"));
+            $(".main-data.point-selected .synopsis").attr('data-id',$selectedHighlights.attr("data-id"));
+			$(".main-data.point-selected .learn-more .title").html($selectedHighlights.attr("data-name"));
             if ($selectedHighlights.attr("data-id") != "")
                 $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
             else

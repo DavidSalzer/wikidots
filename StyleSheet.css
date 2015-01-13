@@ -232,12 +232,37 @@ header {
 }
 
 .learn-more {
-    color: #d31c5b;
+    background-color: #d31c5b;
     position: absolute;
     bottom: 4px;
     right: 9px;
+	left: 9px;
+	height: 54px;
     text-decoration: none;
+	padding: 6px;
 }
+
+.learn-more .line1{
+	color: #000000;
+	font-family: Myriad pro;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.learn-more .title{
+	color: #ffffff;
+	font-family: Myriad pro;
+	font-size: 20px;
+	font-weight: bold;
+}
+.learn-more .arrow{
+	background-image:url('images/arrow-23.png');
+	float:right;
+	width: 47px;
+	height: 43px;
+}
+
 
 .highlights-wrapper {
     width: 454px;

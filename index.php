@@ -106,12 +106,16 @@
                         <div class="synopsis">
                             <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
                             <div class="highlights-text"></div>
-                            <a class="learn-more">LEARN MORE</a>
+                            <a class="learn-more">
+								<div class="arrow"></div>
+								<div class="line1">LEARN MORE ABOUT</div>
+								<div class="title">ss</div>
+							</a>
                         </div>
                         <div class="highlights-wrapper">
                             <?php for($i=1;$i<=7;$i++): ?>
                             <?php if ($row["p_name".$i]!=null & $row["p_name".$i]!=""): ?>
-                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($row["p_valueID".$i], ENT_QUOTES);?>">
+                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($row["p_valueID".$i], ENT_QUOTES);?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>">
                                 <div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div>
                                 <div class="high-title"><?php echo $row["p_name".$i]; ?></div>
                             </div>
