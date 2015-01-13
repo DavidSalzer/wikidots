@@ -92,7 +92,7 @@
             <div class="main-data-wrapper">
                 <div style=" width: 100%;height: 100%;">
                     <div class="main-data">
-                        <div class="help"></div>
+                        <a href="mailto:contact@wikidots.com?Subject=my feedback"><div class="help"></div></a>
                                                     <!--<img class="homepage_headline_text" src="images/homepage_headline_text_19.png" />
                                                     <img class="homepage_laptop" src="images/laptop-18.png" />
                                                     <div class="highlights-wrapper">
