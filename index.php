@@ -68,14 +68,14 @@
 
 
 
-                    <!--<div class="popup popup-oops">
-                        <div>
-                            <div class="x-popup"></div>
-                            <div class="create-new-text" onclick=" showEdit()"></div>
-            
-                        </div>
-                    </div>-->
-        <div class="popup popup-editor popup-oops">
+        <div class="popup popup-oops">
+            <div>
+                <div class="x-popup"></div>
+                <div class="create-new-text" onclick=" showEdit()"></div>
+
+            </div>
+        </div>
+        <div class="popup popup-editor">
             <div>
                 <div class="x-popup"></div>
 
