@@ -776,8 +776,17 @@ cursor: pointer;
 }
 .ui-widget-content{
     width: 300px !important;
-min-height: 0;
-max-height: 300px;
-overflow-y: auto;
-overflow-x: hidden;
+	min-height: 0;
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+
+/*time line */
+
+.timeline-wrap .end-time-background{
+	background-color: red;
+	height: 100%;
+	float:right;
 }
