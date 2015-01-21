@@ -496,6 +496,9 @@ text-overflow: ellipsis;
     margin-top: 18px;
     transition: width 10s linear;
 }
+#timeline-event-node-wrap{
+    display: none
+}
 #timeline-event-node-wrap .timeline-event-node{
   top: 9px;
 /*z-index: 10000;*/
