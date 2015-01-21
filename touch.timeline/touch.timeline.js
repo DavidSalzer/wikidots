@@ -39,6 +39,7 @@
 			// HTML
 			var html = "\t<div class=\"end-time-background\"></div>\n<div class=\"timeline-body\">\n";
 			//html += "\t<div class=\"end-time-background\"></div>\n";
+            html += "\t<div class=\"timeline-line\"></div>\n";
 			html += "\t<div class=\"timeline-draggable nickys-draggable\"></div>\n";
 			html += "</div>\n";
 			html += "<div class=\"timeline-arrow\"></div>\n";
@@ -207,7 +208,12 @@
 		});
 		$('.timeline-event-node').on('click', function() {
 			var timeline = $(this).closest('.timeline-wrap').attr('id').replace('timeline-', '');
-			timelines[timeline].showEvent($(this).attr('id').replace('timeline-event-node-', ''));
+			//timelines[timeline].showEvent($(this).attr('id').replace('timeline-event-node-', ''));
+		});
+        $('.timeline-event-node').on('hover', function() {
+            alert(';')
+			//var timeline = $(this).closest('.timeline-wrap').attr('id').replace('timeline-', '');
+			//timelines[timeline].showEvent($(this).attr('id').replace('timeline-event-node-', ''));
 		});
 		// =======================================		
 		
