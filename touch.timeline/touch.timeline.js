@@ -92,16 +92,21 @@
 				}*/
 				var time=this.events[i].el.attr("data-time");
 				left = (this.timelineWidth*(time-time_start))/(time_end-time_start);
+				contentLeft=left-105;
 				if (left == 0) {
-					left = this.draggableWidth/2 - this.eventNodeWidth/2;
+					left = this.draggableWidth/2 - this.eventNodeWidth;
+					contentLeft=left;
 				}
 				if (left == this.timelineWidth) {
-					left = this.timelineWidth - this.eventNodeWidth/2 - (this.draggableWidth/2);
+					left = this.timelineWidth  - (this.draggableWidth/2);
+					contentLeft=left-200;
 				}
 				//daniel- end
 				
 				this.events[i].el.find('.timeline-event-node').css({ "left" : left });
 				this.events[i].left = left;
+				this.events[i].el.find('.timeline-content').css({ "left" : contentLeft });
+				
 			}
 			//daniel- sart
 				$(".timeline-wrap").find('.end-time-background').width($(".timeline-wrap").width()-left-10);
