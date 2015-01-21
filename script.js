@@ -139,6 +139,12 @@ $(function () {
         animate()
     },200);
 	
+   $(".popup-feedback").click(function(e){
+       if($(e.target).hasClass('popup-feedback')){
+           $(".popup-feedback").fadeOut()
+       }
+       
+   });
 	$('#send-email').submit(function(){
 		$.ajax({
 		  type: "POST",
@@ -153,6 +159,10 @@ $(function () {
 
 
 })
+
+ function showFeedbackPopup(e){
+        $(".popup-feedback").fadeIn();
+    }
 
 function hideSidebar() {
     $("#sidebar").css("right", "-237px");

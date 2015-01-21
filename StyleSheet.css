@@ -628,12 +628,38 @@ z-index: 100;
     background-image: url("images/editPopup.png");
 }
 
+.popup-feedback > div {
+   background-image: url("images/feedback form-clean.png");
+width: 532px;
+height: 672px;
+top: 0;
+bottom: 0;
+position: absolute;
+left: 0;
+right: 0;
+}
+
+.popup-feedback{
+    top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+/* margin: auto; */
+background-color: rgba(0,0,0,0.6);}
+
 form#send-email input[name=email] {
     width: 216px;
     position: absolute;
     top: 242px;
     left: 47px;
     height: 30px;
+}
+.popup-feedback form#send-email input[name=email] 
+{
+   right: 63px;
+left: inherit;
+width: 295px;
+top: 235px;
 }
 
 form#send-email input.sendbtn {
@@ -643,7 +669,26 @@ form#send-email input.sendbtn {
     left: 262px;
     height: 56px;
 }
-
+.popup-feedback form#send-email input.sendbtn
+{
+  bottom: 116px;
+top: inherit;
+right: 56px;
+left: inherit;
+}
+.popup-feedback form#send-email input.sendbtn:hover{
+    opacity: 0.8;
+}
+.popup-feedback textarea
+{
+   position: absolute;
+top: 291px;
+left: 49px;
+width: 398px;
+height: 182px;
+padding: 10px;
+color: black;
+}
 
 .send-mail {
     position: absolute;

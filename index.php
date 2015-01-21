@@ -102,6 +102,8 @@
 
             </div>
         </div>
+        <!--feedback form-clean.png-->
+        
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
         <div id="mainMask"></div>
         <div class="main-wrapper">
