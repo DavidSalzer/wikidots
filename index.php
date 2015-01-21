@@ -1,20 +1,29 @@
 <?php
-       $valueID = isset($_GET['id'])?$_GET['id']:"";
-    
-       $dbname = "wikidots";
-       $host = "82.80.210.144";  
-       $user = "wikidots";
-       $pass = "wagoiplrkyjdnvtxemcq"; 
-       $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-       $statement = $db->prepare("select * from value where valueID = :valueID");
-       $statement->execute(array(':valueID' => $valueID));
-       $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
-       if ($row==null){
-     header("Location: homepage.php");
-     die();
-    }
-    
-       //print_r($row);
+	$valueID = isset($_GET['id'])?$_GET['id']:"";
+	
+	$dbname = "wikidots";
+	$host = "82.80.210.144";  
+	$user = "wikidots";
+	$pass = "wagoiplrkyjdnvtxemcq"; 
+	$db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+	$statement = $db->prepare("select * from value where valueID = :valueID");
+	$statement->execute(array(':valueID' => $valueID));
+	$row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
+	
+	if ($row==null){
+		header("Location: homepage.php");
+		die();
+	}
+	
+    function has_value($valueID){
+		global $db;
+		$statement = $db->prepare("select * from value where valueID = :valueID");
+		$statement->execute(array(':valueID' => $valueID));
+		$row = $statement->fetch(PDO::FETCH_ASSOC);
+		return $row!=null;
+	}
+	
+	//print_r($row);
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +104,7 @@
             <div>
                 <div class="x-popup"></div>
 
-                <form id="send-email">
+                <form id="send-email"  data-type="popup-editor">
                     <input type="email" name="email"></textarea>
                     <input class="sendbtn" type="image" src="images/submit-button-21.png" alt="Submit Form" />
                 </form>
@@ -133,7 +142,7 @@
                         <div class="highlights-wrapper">
                             <?php for($i=1;$i<=7;$i++): ?>
                             <?php if ($row["p_name".$i]!=null & $row["p_name".$i]!=""): ?>
-                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($row["p_valueID".$i], ENT_QUOTES);?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>">
+                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo has_value($row["p_valueID".$i])?htmlspecialchars($row["p_valueID".$i], ENT_QUOTES):'';?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>">
                                 <div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div>
                                 <div class="high-title"><?php echo $row["p_name".$i]; ?></div>
                             </div>

@@ -10,7 +10,9 @@
 	$mail->AddAddress("elad@pixidigital.com");
 	
 	$mail->Subject  = "message from wikidot";
-	$mail->Body     = $_POST["message"];
+	$mail->Body     = "type: " . $_POST["type"]."\n\r";
+	$mail->Body     .= "email: " . $_POST["email"]."\n\r";
+	$mail->Body     .= "feedback: " . $_POST["feedback"]."\n\r";
 	$mail->WordWrap = 50;
 	
 	if(!$mail->Send()) {

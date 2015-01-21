@@ -147,12 +147,16 @@ $(function () {
    });
 	$('#send-email').submit(function(){
 		$.ajax({
-		  type: "POST",
-		  url: "getEmail.php",
-		  data: {message:$(this).find("input[name=email]").val()},
-		  success: function(){
-			alert("message send");
-		  },
+			type: "POST",
+			url: "getEmail.php",
+			data: {
+				type:$(this).attr("data-type"),
+				email:$(this).find("input[name=email]").val(),
+				feedback:$(this).find("textarea[name=feedback]").val(),	
+			},
+			success: function(){
+				alert("message send");
+			},
 		});
 		return false;
 	})

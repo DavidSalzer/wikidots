@@ -138,9 +138,9 @@
             <div>
                 <!--<div class="x-popup"></div>-->
 
-                <form id="send-email">
+                <form id="send-email" data-type="feedback">
                     <input type="email" name="email"></input>
-                    <textarea placeholder="Your feedback"></textarea>
+                    <textarea name="feedback" placeholder="Your feedback"></textarea>
                     <input class="sendbtn" type="image" src="images/submit-21.png" alt="Submit Form" />
                 </form>
 
