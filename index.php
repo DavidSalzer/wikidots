@@ -151,7 +151,7 @@
             </div>
         </div>
 
-        <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
+        <div class="main-background" ><img src="<?php echo $row["imgUrl"]; ?>"></div>
         <div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
