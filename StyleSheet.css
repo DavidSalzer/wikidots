@@ -38,6 +38,7 @@ body {
     background-color: gray;
     overflow: hidden;
     margin: 0;
+    font-family: MyriadPro;
 }
 
 html {
@@ -103,13 +104,13 @@ header {
 }
 
 .menu.edit {
-    background-image: url('images/editicon.png');
-    width: 43px;
-    height: 47px;
-    background-size: 100% 100%;
-    margin-right: 10px;
-    background-position-y: -10px;
-    cursor: pointer;
+ background-image: url('images/editicon.png');
+width: 43px;
+height: 47px;
+background-size: 100% 100%;
+margin-right: -1px;
+background-position-y: -10px;
+cursor: pointer;
 }
 
 .menu:hover {
@@ -206,8 +207,8 @@ header {
 
 .synopsis {
    box-shadow: 10px 18px 21px 0.00px rgba(1, 1, 1, 0.43);
-width: 352px;
-height: 258px;
+width: 328px;
+height: 214px;
 background-color: white;
 text-align: left;
 font-family: OpenSans;
@@ -216,7 +217,7 @@ font-size: 17px;
 font-weight: 400;
 line-height: 22px;
 overflow: hidden;
-padding: 7px 5px;
+padding: 30px;
 display: inline-block;
 top: 0;
 vertical-align: top;
@@ -226,7 +227,11 @@ position: relative;
 border: 3px solid white;
 transition: all 0.3s linear;
 }
-
+.syn-text{
+    overflow-x: hidden;
+overflow-y: auto;
+height: 214px;
+}
 .syn-text::first-letter {
     font-weight: bold;
     font-size: 20px;
@@ -285,11 +290,11 @@ text-overflow: ellipsis;
 }
 
 .highlights-item {
-    width: 100px;
-    margin-right: 10px;
-    cursor: pointer;
-    float: left;
-    height: 141px;
+   width: 96px;
+margin-right: 14px;
+cursor: pointer;
+float: left;
+height: 141px;
 }
 
 .home-page .highlights-item {
@@ -300,7 +305,7 @@ text-overflow: ellipsis;
     width: 90px;
     height: 90px;
     border-radius: 23px;
-    background-color: black;
+    background-color: white;
     border: 2px solid white;
     background-size: 100%;
     background-size: cover;
@@ -325,13 +330,16 @@ text-overflow: ellipsis;
 }
 
 .high-title {
-    font-size: 12px;
-    color: white;
-    text-align: center;
-    height: 32px;
-    overflow: hidden;
-    margin-bottom: 5px;
-    margin-top: 2px;
+  font-size: 13px;
+color: white;
+text-align: center;
+height: 32px;
+overflow: hidden;
+margin-bottom: 5px;
+margin-top: 2px;
+width: 90px;
+margin: auto;
+margin-top: 6px;
 }
 
 .play {
@@ -341,7 +349,7 @@ text-overflow: ellipsis;
     width: 88px;
     height: 92px;
     position: absolute;
-    right: 25px;
+    right: 14px;
     top: 131px;
     cursor: pointer;
 }
@@ -357,6 +365,7 @@ text-overflow: ellipsis;
     font-family: MyriadPro;
     width: 936px;
     display: none;
+    height: 56px;
 }
 
 .desc-name {
@@ -369,11 +378,11 @@ text-overflow: ellipsis;
 
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: 38px;
     height: 185px;
     width: 100%;
     position: absolute;
-    padding-left: 36px;
+    padding-left: 28px;
     padding-right: 58px;
     /* margin: auto; */
     box-sizing: border-box;
@@ -415,22 +424,25 @@ text-overflow: ellipsis;
 }
 
 .wikipedia_button {
-    height: 9.2px;
-    position: relative;
-    width: 28px;
-    height: 28px;
-    display: inline-block;
-    vertical-align: bottom;
-    margin-bottom: 4px;
+  height: 9.2px;
+position: relative;
+width: auto;
+height: auto;
+display: inline-block;
+vertical-align: bottom;
+margin-bottom: 4px;
+float: right;
+margin-right: 19px;
 }
 .wikipedia_button:hover{
     opacity: 0.8;
 }
 
 .wikipedia_button img {
-    width: 28px;
-    height: 27.2px;
-    display: block;
+ width: auto;
+height: 30px;
+display: block;
+margin-top: -1px;
 }
 
 
@@ -687,14 +699,26 @@ font-family: MyriadPro;
 font-size: 20pt;
 }
 .learn-more-title{
-  /* color: #d31c5b; */
+ /* color: #d31c5b; */
 font-family: MyriadPro;
 font-weight: bold;
-font-size: 20pt;  
+font-size: 20pt;
+height: 32px;
+overflow: hidden;
+width: 338px;
+text-overflow: ellipsis;
+/* width: 289px; */
+overflow: hidden;
+white-space: nowrap;
 }
 .learn-more-text{
-   margin-top: 15px;
+  margin-top: 15px;
 height: 147px;
+font-family: opensans;
+font-size: 17px;
+font-weight: 400;
+line-height: 22px;
+overflow-x: hidden;
 }
 .learn-more-thumb{
  float: right;
@@ -704,6 +728,7 @@ border-radius: 78px;
 /* background-color: red; */
 background-size: cover;
 margin-top: 7px;
+background-color: #F2F2F2;
 }
 .learn-more-button{
     background-image: url('images/learn more button-21.png');
@@ -714,6 +739,9 @@ margin-left: -17px;
 cursor: pointer;
 display: block;
     
+}
+.learn-more-button:hover{
+    opacity: 0.8;
 }
 form#send-email input[name=email] {
     width: 216px;
@@ -857,9 +885,20 @@ right: 27px;
     right: 0px;
     height: 200px;
     width: 200px;
+    cursor: pointer;
 }
-
-
+.popup .x-popup:hover {
+opacity: 0.7
+}
+.popup-learn-more .x-popup
+{
+    background-image: url('images/close.png');
+background-repeat: no-repeat;
+width: 38px;
+height: 38px;
+right: 10px;
+top: 10px;
+}
 
 #mainMask {
     position: absolute;
@@ -1061,4 +1100,52 @@ background-size: 200%;
 background-position-x: -29px;
 position: absolute;
 top: -13px;
+}
+
+/***********loader**********/
+.loader-wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background-color: #333333;
+    
+    display: none;
+}
+.loader-wrap .logo-wrap{
+    width: 1024px;
+margin: auto;
+}
+.loader-wrap .logo{
+    margin-top: 20px;
+}
+.loader{
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    margin: auto;
+     text-align: center
+}
+.loader-text{
+    text-align: center;
+    color: white;
+}
+.loader-bar{
+    background-color: black;
+    width: 100%;
+    height: 10px;
+    margin-top: 10px;
+}
+.loader-progressbar{
+    background-color: #d31c5b;
+    width: 10%;
+    height: 10px;
+    
+    transition: width 1.7s;
 }
