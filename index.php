@@ -65,6 +65,14 @@
 
 
 
+
+
+
+
+            
+            
+            
+            
             
             
             
@@ -151,13 +159,13 @@
             </div>
         </div>
 
-        <div class="main-background" ><img src="<?php echo $row["imgUrl"]; ?>"></div>
+        <div class="main-background"><img src="<?php echo $row["imgUrl"]; ?>"></div>
         <div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
-               <a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" class="wikipedia_button" target="_blank"><img src="images/wikipedia_button.png" /></a>
-                 <div class="menu edit" onclick="showEdit()"></div>
+                <a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" class="wikipedia_button" target="_blank"><img src="images/wikipedia_button.png" /></a>
+                <div class="menu edit" onclick="showEdit()"></div>
                 <div class="share-wrapper">
                     <div class="fb-share-button" data-href="http://wikidots.com?id=<?php echo $row["valueID"]; ?>" data-layout="button"></div>
                 </div>
@@ -211,32 +219,37 @@
                     $importantDate= $row["ImportantDate"]; 
                     $now=2015;
                 ?>
-                <div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
-                    <div class="timeline-event" data-time="<?php echo  $start?>">
-                        <div class="timeline-title"><?php echo  $start?></div>
-                        <div class="timeline-content">
-                            <p><?php echo $row["start_text"]; ?></p>
-                        </div>
-                    </div>
-                    <div class="timeline-event" data-time="<?php echo  $importantDate?>">
-                        <div class="timeline-title"><?php echo  $importantDate?></div>
-                        <div class="timeline-content">
-                            <p><?php echo $row["importantDate_taxt"]; ?></p>
-                        </div>
-                    </div>
-                    <div class="timeline-event" data-time="<?php echo  $end?>">
-                        <div class="timeline-title"><?php echo  $end?></div>
-                        <div class="timeline-content">
-                            <p><?php echo $row["end_text"]; ?></p>
-                        </div>
-                    </div>
+                <div id="slide-wrap">
+                    <div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
 
-                    <div id="timeline-event-node-wrap">
-                        <div class="timeline-event-node"></div>
-                        <div class="timeline-event-node"></div>
-                        <div class="timeline-event-node"></div>
+                        <div class="timeline-event" data-time="<?php echo  $start?>">
+                            <div class="timeline-title"><?php echo  $start?></div>
+                            <div class="timeline-content">
+                                <p><?php echo $row["start_text"]; ?></p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-time="<?php echo  $importantDate?>">
+                            <div class="timeline-title"><?php echo  $importantDate?></div>
+                            <div class="timeline-content">
+                                <p><?php echo $row["importantDate_taxt"]; ?></p>
+                            </div>
+                        </div>
+                        <div class="timeline-event" data-time="<?php echo  $end?>">
+                            <div class="timeline-title"><?php echo  $end?></div>
+                            <div class="timeline-content">
+                                <p><?php echo $row["end_text"]; ?></p>
+                            </div>
+                        </div>
+
+                        <div id="timeline-event-node-wrap">
+                            <div class="timeline-event-node"></div>
+                            <div class="timeline-event-node"></div>
+                            <div class="timeline-event-node"></div>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
 
 
