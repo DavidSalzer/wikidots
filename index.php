@@ -111,6 +111,27 @@
 
             </div>
         </div>
+
+          <div class="popup popup-learn-more">
+            <div class="learn-more-wrapper">
+                <div class="x-popup"></div>
+                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
+                
+                <div class="learn-more--wrap-box">
+                    <div class="learn-more-data">
+                        <div class="about">A bit about</div>
+                        <div class="learn-more-title">John Lennon</div>
+                        <div class="learn-more-text">gfasf asfas fasf saftwetwe tafgasfa sfasf asftwetew safasfe twet fasfsat wwetwef asfas twwetasfasf rtqwtsdgsadg eyweywe fasf 6436sdgsdg rwqr</div>
+                        <a class="learn-more-button"></a>
+                    </div>
+                    <div class="learn-more-thumb">
+                    
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
         <!--feedback form-clean.png-->
         
         <div class="main-background" style="background-image: url('<?php echo $row["imgUrl"]; ?>')"></div>
@@ -142,7 +163,7 @@
                         <div class="highlights-wrapper">
                             <?php for($i=1;$i<=7;$i++): ?>
                             <?php if ($row["p_name".$i]!=null & $row["p_name".$i]!=""): ?>
-                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo has_value($row["p_valueID".$i])?htmlspecialchars($row["p_valueID".$i], ENT_QUOTES):'';?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>">
+                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo has_value($row["p_valueID".$i])?htmlspecialchars($row["p_valueID".$i], ENT_QUOTES):'';?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>"  data-image="<?php echo htmlspecialchars($row["p_image_url".$i], ENT_QUOTES);?>">
                                 <div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div>
                                 <div class="high-title"><?php echo $row["p_name".$i]; ?></div>
                             </div>
@@ -237,6 +258,7 @@
                     <div class="option-item"></div>
                 </div>
             </div>
+
         </div>
 
         <div class="youtube-iframe" style="display: none;" onclick="hideVideo()">

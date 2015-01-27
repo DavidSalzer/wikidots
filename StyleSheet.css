@@ -37,6 +37,7 @@ body {
     height: 100%;
     background-color: gray;
     overflow: hidden;
+    margin: 0;
 }
 
 html {
@@ -649,7 +650,71 @@ width: 100%;
 height: 100%;
 /* margin: auto; */
 background-color: rgba(0,0,0,0.6);}
-
+.popup.popup-learn-more{
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+}
+.popup-learn-more > div
+{
+  width: 1024px;
+margin: auto;
+height: 100%;
+}
+.popup-learn-more .logo{
+    margin-top: 20px;
+}
+.learn-more--wrap-box{
+  width: 668px;
+height: 284px;
+background-color: white;
+padding: 30px;
+margin: auto;
+/* margin-top: 136px; */
+position: absolute;
+left: 0;
+right: 0;
+top: 206px;
+border-radius: 25px 0px 0px 0px;
+}
+.learn-more-data{
+  width: 340px;
+float: left;
+}
+.about{
+    color: #d31c5b;
+font-family: MyriadPro;
+/* font-weight: 600; */
+font-size: 20pt;
+}
+.learn-more-title{
+  /* color: #d31c5b; */
+font-family: MyriadPro;
+font-weight: bold;
+font-size: 20pt;  
+}
+.learn-more-text{
+   margin-top: 15px;
+height: 147px;
+}
+.learn-more-thumb{
+ float: right;
+width: 270px;
+height: 270px;
+border-radius: 78px;
+/* background-color: red; */
+background-size: cover;
+margin-top: 7px;
+}
+.learn-more-button{
+    background-image: url('images/learn more button-21.png');
+width: 391px;
+height: 89px;
+background-size: 100%;
+margin-left: -17px;
+cursor: pointer;
+display: block;
+    
+}
 form#send-email input[name=email] {
     width: 216px;
     position: absolute;

@@ -34,7 +34,7 @@ $(function () {
         //www.youtube.com/embed/PBN0nqQX5xo
     });
 
-    $('body').on('click','.learn-more',function(){
+    $('body').on('click','.learn-more-button',function(){
         var id =$(this).parent(".synopsis").attr("data-id");
    
        _gaq.push(['_trackEvent', 'learn more', id, ' ']);
@@ -47,28 +47,32 @@ $(function () {
     $selectedHighlights = null;
     $("body.value-page .highlights-item .high-img").click(function () {
         if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
-            $(".highlights-item").removeClass("selected");
-            $(".synopsis").removeClass("selectedsyn");
-            $selectedHighlights = null;
-            $(".main-data").removeClass("point-selected");
-            $(".back-button").hide();
+           // $(".highlights-item").removeClass("selected");
+          //  $(".synopsis").removeClass("selectedsyn");
+          //  $selectedHighlights = null;
+          //  $(".main-data").removeClass("point-selected");
+          //  $(".back-button").hide();
         }
         else {
+            $(".popup-learn-more").fadeIn()
+
+
             var id =$(this).parent(".highlights-item").attr('data-id');
             _gaq.push(['_trackEvent', 'Thumbs clicks - value page', id, ' ']);
             $selectedHighlights = $(this).parent(".highlights-item");
-            $(".main-data").addClass("point-selected");
-            $(".synopsis").addClass("selectedsyn");
-            $(".back-button").show();
-            $(".highlights-item").removeClass("selected");
-            $selectedHighlights.addClass("selected");
-            $(".main-data.point-selected .synopsis .highlights-text").html($selectedHighlights.attr("data-description"));
-            $(".main-data.point-selected .synopsis").attr('data-id',$selectedHighlights.attr("data-id"));
-			$(".main-data.point-selected .learn-more .title").html($selectedHighlights.attr("data-name"));
+           // $(".main-data").addClass("point-selected");
+           // $(".synopsis").addClass("selectedsyn");
+           // $(".back-button").show();
+            //$(".highlights-item").removeClass("selected");
+            //$selectedHighlights.addClass("selected");
+            $(".learn-more-text").html($selectedHighlights.attr("data-description"));
+            $(".learn-more-text").attr('data-id',$selectedHighlights.attr("data-id"));
+			$(".learn-more-title").html($selectedHighlights.attr("data-name"));
+            $(".learn-more-thumb").css("background-image","url('"+$selectedHighlights.attr("data-image")+"')")
             if ($selectedHighlights.attr("data-id") != "")
-                $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
+                $(".learn-more-button").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
             else
-                $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").fadeIn();');
+                $(".learn-more-button").attr("href", 'javascript:$(".popup-learn-more").fadeOut();$(".popup-oops").fadeIn();');
         }
     })
 
@@ -142,6 +146,12 @@ $(function () {
    $(".popup-feedback").click(function(e){
        if($(e.target).hasClass('popup-feedback')){
            $(".popup-feedback").fadeOut()
+       }
+       
+   });
+   $(".popup-learn-more").click(function(e){
+       if($(e.target).hasClass('popup-learn-more') || $(e.target).hasClass('learn-more-wrapper')){
+           $(".popup-learn-more").fadeOut()
        }
        
    });
