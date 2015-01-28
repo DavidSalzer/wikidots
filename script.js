@@ -1,4 +1,36 @@
 $(function () {
+
+    //timeline close events text
+     $('body').mousedown(function(a){
+        cls = $(a.target).attr('class');
+        if (cls == 'timeline-draggable nickys-draggable' || cls == 'timeline-event-node' || cls == 'timeline-content active-content' || cls == 'timeline-body')
+        {
+            return;   
+        }
+        $('.active-content').hide();
+    });
+    $('.active-content').removeClass('active-content').hide();
+    
+
+    //check if to show loader
+    //if there is no localstorage data - show it
+    if(localStorage.getItem('toHideLoader') == undefined || localStorage.getItem('toHideLoader') == null||localStorage.getItem('toHideLoader') == ''){
+       //if true- show the loader, animate the bar, and animate the value page data
+       showLoaderPage();
+    }
+    else{
+        //if there is localstorage data -check the time
+        if( Date.now() - parseInt(localStorage.getItem('toHideLoader')) > 1800000){
+            showLoaderPage();
+        }
+        else{
+             //if not - animate the value page data
+         setTimeout(function(){
+            animate()
+        },200);
+        }
+       
+    }
     $("body.value-page .hand").click(function () {
 
         if ($(".main-data").is(":visible")) {
@@ -34,7 +66,7 @@ $(function () {
         //www.youtube.com/embed/PBN0nqQX5xo
     });
 
-    $('body').on('click','.learn-more',function(){
+    $('body').on('click','.learn-more-button',function(){
         var id =$(this).parent(".synopsis").attr("data-id");
    
        _gaq.push(['_trackEvent', 'learn more', id, ' ']);
@@ -46,30 +78,27 @@ $(function () {
     })  
     $selectedHighlights = null;
     $("body.value-page .highlights-item .high-img").click(function () {
-        if ($selectedHighlights != null && $selectedHighlights[0] == $(this).parent(".highlights-item")[0]) {
-            $(".highlights-item").removeClass("selected");
-            $(".synopsis").removeClass("selectedsyn");
-            $selectedHighlights = null;
-            $(".main-data").removeClass("point-selected");
-            $(".back-button").hide();
-        }
-        else {
+        $(".popup-learn-more").fadeIn()
+        $(".main-background img").addClass('grow')
+
             var id =$(this).parent(".highlights-item").attr('data-id');
             _gaq.push(['_trackEvent', 'Thumbs clicks - value page', id, ' ']);
             $selectedHighlights = $(this).parent(".highlights-item");
-            $(".main-data").addClass("point-selected");
-            $(".synopsis").addClass("selectedsyn");
-            $(".back-button").show();
-            $(".highlights-item").removeClass("selected");
-            $selectedHighlights.addClass("selected");
-            $(".main-data.point-selected .synopsis .highlights-text").html($selectedHighlights.attr("data-description"));
-            $(".main-data.point-selected .synopsis").attr('data-id',$selectedHighlights.attr("data-id"));
-			$(".main-data.point-selected .learn-more .title").html($selectedHighlights.attr("data-name"));
-            if ($selectedHighlights.attr("data-id") != "")
-                $(".main-data.point-selected .learn-more").attr("href", "?id=" + $selectedHighlights.attr("data-id"));
-            else
-                $(".main-data.point-selected .learn-more").attr("href", 'javascript:$(".popup-oops").fadeIn();');
-        }
+             $(".learn-more-text").html($selectedHighlights.attr("data-description"));
+            $(".learn-more-text").attr('data-id',$selectedHighlights.attr("data-id"));
+			$(".learn-more-title").html($selectedHighlights.attr("data-name"));
+            $(".learn-more-thumb").css("background-image","url('"+$selectedHighlights.attr("data-image")+"')")
+            if ($selectedHighlights.attr("data-id") != ""){
+                $(".learn-more-button").attr("href", "?id=" + $selectedHighlights.attr("data-id")); 
+                 $(".learn-more-thumb a").attr("href", "?id=" + $selectedHighlights.attr("data-id")); 
+            }
+               
+            else{
+                $(".learn-more-button").attr("href", 'javascript:$(".popup-learn-more").fadeOut(); $(".popup-oops").fadeIn();');
+                $(".learn-more-thumb a").attr("href", 'javascript:$(".popup-learn-more").fadeOut();$(".popup-oops").fadeIn();');
+            }
+                
+       // }
     })
 
     $("body.home-page .highlights-item .high-img").click(function () {
@@ -101,13 +130,13 @@ $(function () {
 
 
 
-    $(".back-button").click(function () {
-        $(".synopsis").removeClass("selectedsyn");
-        $(".highlights-item").removeClass("selected");
-        $selectedHighlights = null;
-        $(".main-data").removeClass("point-selected");
-        $(".back-button").hide();
-    })
+    //$(".back-button").click(function () {
+    //    $(".synopsis").removeClass("selectedsyn");
+    //    $(".highlights-item").removeClass("selected");
+    //    $selectedHighlights = null;
+    //    $(".main-data").removeClass("point-selected");
+    //    $(".back-button").hide();
+    //})
 
     $(".search").autocomplete({
         source: valuesName,
@@ -132,18 +161,28 @@ $(function () {
     }
 
     $(" .popup .x-popup").click(function () {
-        $(".popup").hide();
+        $(".popup").fadeOut();
     })
 
-    setTimeout(function(){
-        animate()
-    },200);
+   
 	
    $(".popup-feedback").click(function(e){
        if($(e.target).hasClass('popup-feedback')){
            $(".popup-feedback").fadeOut()
        }
        
+   });
+   $(".popup-learn-more").click(function(e){
+       if($(e.target).hasClass('popup-learn-more') || $(e.target).hasClass('learn-more-wrapper')){
+          $(".main-background img").removeClass("grow");
+           $(".popup-learn-more").fadeOut();
+           
+       }
+       
+   });
+   $(".popup-learn-more .x-popup").click(function(e){
+           $(".main-background img").removeClass("grow");
+           $(".popup-learn-more").fadeOut();
    });
 	$('#send-email').submit(function(){
 		$.ajax({
@@ -242,4 +281,17 @@ function getParameterByName(name) {
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+function showLoaderPage(){
+     $('.loader-wrap').fadeIn();
+      $('.loader-progressbar').css('width','100%');
+      //set the localstorage data
+      localStorage.setItem('toHideLoader',Date.now());
+        setTimeout(function(){
+           $('.loader-wrap').fadeOut();
+              setTimeout(function(){
+                animate()
+                  },200);
+        },1700);
 }

@@ -16,7 +16,7 @@
 			
 			this.el.attr('id', this.id);
 			
-			eventId++;
+			eventId++;            
 		}
 		function Timeline(el) {
 			this.id = "timeline-"+timelineId;
@@ -213,7 +213,7 @@
 		});
 		$('.timeline-event-node').on('click', function() {
 			var timeline = $(this).closest('.timeline-wrap').attr('id').replace('timeline-', '');
-			//timelines[timeline].showEvent($(this).attr('id').replace('timeline-event-node-', ''));
+			timelines[timeline].showEvent($(this).attr('id').replace('timeline-event-node-', ''));
 		});
         $('.timeline-event-node').on('hover', function() {
             alert(';')
