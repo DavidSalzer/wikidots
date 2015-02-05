@@ -3,20 +3,75 @@ include_once("krumo/class.krumo.php");
 include_once('simple_html_dom/simple_html_dom.php');
 
 class WikidotValue{
+
+	private $db;
 	
-	function importValue($value){
+	function __construct() {
+		$dbname = "wikidots";
+		$host = "82.80.210.144";  
+		$user = "wikidots";
+		$pass = "wagoiplrkyjdnvtxemcq"; 
+		$this->db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+	}
+	
+	function getValue($value_id){
+		$statement = $this->db->prepare("SELECT * FROM `values` where id=:id");
+		$statement->execute(array(':id' => $value_id));
+		$value = $statement->fetch(PDO::FETCH_ASSOC);
+		if ($value==null){
+			$value=$this->importValue($value_id);
+			if (isset($value->error))
+				return null;
+			else{
+				$this->saveData($value);
+				return $this->getValue($value_id);
+			}
+		}
+		$statement = $this->db->prepare("SELECT * FROM `event` where vid=:id");
+		$statement->execute(array(':id' => $value_id));
+		$value["event"] = $statement->fetchAll(PDO::FETCH_ASSOC);
+		$statement = $this->db->prepare("SELECT `highlights`.*, `values`.`img_url` FROM `highlights` join `values` on `values`.`id`=`highlights`.`to_vid` where `highlights`.`vid`=:id");
+		$statement->execute(array(':id' => $value_id));
+		$value["highlights"] = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return (object)$value;
+	}
+	
+	function saveData($obj){
+		$statement = $this->db->prepare("INSERT INTO `values` (`id`, `title`, `synopsis`, `img_url`) VALUES (:id, :title, :synopsis, :img_url)");
+		$statement->execute(array('id' => $obj->id, 'title' => $obj->title, 'synopsis' => $obj->synopsis, 'img_url' => $obj->img_url ));
+		foreach($obj->events as $event){
+			$statement = $this->db->prepare("INSERT INTO `event` (`vid`, `year`, `text`) VALUES (:vid, :year, :text)");
+			$statement->execute(array('vid' => $obj->id, 'year' => $event->year, 'text' => $event->text));
+		}
+		foreach($obj->highlights as $highlight){
+			$statement = $this->db->prepare("INSERT INTO `highlights` (`vid`, `to_vid`, `name`, `description`) VALUES (:vid, :to_vid,:name,:description)");
+			$statement->execute(array('vid' => $obj->id, 'to_vid' => $highlight->value, 'name' => $highlight->name, 'description' => $highlight->description));
+		}
+	}
+	
+	function is_value_exsist($value_id){
+		return (getValue($value_id)!=null);
+	}
+	
+	function get_front_highlights(){
+		$statement = $db->prepare("SELECT `values`.* FROM `front` join `values` on `values`.`id`= `front`.`valueID` ORDER BY `order` limit 8");
+		$statement->execute();
+		$homeValue = $statement->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	function importValue($value_id){
 		$res=new stdClass();
-		$json = file_get_contents('http://en.wikipedia.org/w/api.php?action=parse&page='.$value.'&format=json');
+		$json = file_get_contents('http://en.wikipedia.org/w/api.php?action=parse&page='.$value_id.'&format=json');
 		$wikipediaData = json_decode($json);
-		$doc = str_get_html($wikipediaData->parse->text->{'*'});
 		
 		if (isset($wikipediaData->error)){
 			$res->error=$wikipediaData->error;
 			return $res;
 		}
-		Krumo($wikipediaData);
+		$doc = str_get_html($wikipediaData->parse->text->{'*'});
+		//Krumo($wikipediaData);
 		
-		$res->id=$value;
+		$res->id=$value_id;
 		$res->title=$wikipediaData->parse->title;
 		//Description
 		$pattern = "/<p>(.*?)<\/p>/";
@@ -126,27 +181,5 @@ class WikidotValue{
 
 		return $res;
 	}
-	
-	function saveData($obj){
-		
-	}
-	
-	function getValue($value_id){
-		
-	}
-	
-	function is_value_exsist($value_id){
-	
-	}
-	
-	
-	
+
 }
-
-
-
-$wikidotValue=new WikidotValue();
-$data=$wikidotValue->importValue($_GET["value"]);
-
-Krumo($data);
-echo '<img src='.$data->img_url.'>';
