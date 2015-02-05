@@ -194,7 +194,7 @@
                             <?php endfor ?>
                         </div>
                         <?php if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
-                        <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"></div>
+                        <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"><span>Trailer</span></div>
                         <?php endif?>
                     </div>
                 </div>

@@ -378,7 +378,17 @@ header {
 .play:hover {
     opacity: 0.8;
 }
-
+.play span{
+vertical-align: bottom;
+display: block;
+/* bottom: 0px; */
+position: relative;
+margin-top: 74px;
+color: white;
+text-align: center;
+width: 81px;
+font-size: 13px;
+}
 .value-name {
     font-size: 51px;
     text-shadow: 2px 2px #000;
@@ -404,7 +414,7 @@ header {
     width: 100%;
     position: absolute;
     padding-left: 28px;
-    padding-right: 58px;
+    padding-right: 30px;
     /* margin: auto; */
     box-sizing: border-box;
     z-index: 1;
