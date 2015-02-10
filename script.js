@@ -1,3 +1,4 @@
+ var mySwiper ;
 $(function () {
 
     //timeline close events text
@@ -105,7 +106,7 @@ $(function () {
         $selectedHighlights = $(this).parent(".highlights-item");
         var id =$selectedHighlights.attr("data-id");
         _gaq.push(['_trackEvent', 'Thumbs clicks - homepage', id, ' ']);
-        window.location = "index.php?id=" + $selectedHighlights.attr("data-id");
+        window.location = "/?id=" + $selectedHighlights.attr("data-id");
     });
 
     $(".magnifying-glass").click(function () {
@@ -149,8 +150,8 @@ $(function () {
         var valueName = $(".search").val();
         var valueID = null;
         values.forEach(function (element) {
-            if (valueName == element.title)
-                valueID = element.id;
+            if (valueName == element.valueName)
+                valueID = element.valueID;
         });
         if (valueID != null)
             window.location = "/?id=" + valueID;
@@ -201,6 +202,36 @@ $(function () {
 	})
 
 
+    mySwiper = new Swiper('.swiper-container',{
+    loop:false,
+    grabCursor: false,
+    paginationClickable: true,
+    pagination: '.pagination',
+    paginationClickable: true,
+    onSlideChangeEnd:function(){
+        //set the arrows display
+        var slidersNum = $(".swiper-slide").length-1;
+        if( parseInt(mySwiper.activeIndex) < slidersNum){
+            $(".arrow-right").show();
+            $(".arrow-left").show();
+        }
+        if( parseInt(mySwiper.activeIndex) == slidersNum){
+            $(".arrow-right").hide();
+            $(".arrow-left").show();
+        }
+        if(parseInt(mySwiper.activeIndex) == 0){
+           $(".arrow-left").hide();  
+        }
+      }
+  })
+  $('.arrow-left').on('click', function(e){
+    e.preventDefault()
+    mySwiper.swipePrev()
+  })
+  $('.arrow-right').on('click', function(e){
+    e.preventDefault()
+    mySwiper.swipeNext()
+  })
 })
 
  function showFeedbackPopup(e){

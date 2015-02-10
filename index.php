@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
         <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="touch.timeline/touch.timeline.light.css" type="text/css" />
+		<link rel="stylesheet" href="idangerous.swiper.css">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -39,6 +40,7 @@
         </script>
 
         <script src="script.js"></script>
+		<script src="idangerous.swiper.min.js"></script>
 
 
         <!-- Google Analytics -->
@@ -149,13 +151,24 @@
                                 <div class="title">ss</div>
                             </a>
                         </div>
-                        <div class="highlights-wrapper">
-							<?php foreach($row->highlights as $highlight): ?>
-								<div class="highlights-item" data-description="<?php echo htmlspecialchars($highlight["description"], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($highlight["to_vid"], ENT_QUOTES);?>" data-name="<?php echo htmlspecialchars($highlight["name"], ENT_QUOTES);?>" data-image="<?php echo htmlspecialchars($highlight["img_url"], ENT_QUOTES);?>">
-									<div class="high-img" style="background-image: url('<?php echo $highlight["img_url"]; ?>')"></div>
-									<div class="high-title"><?php echo $highlight["name"]; ?></div>
-								</div>
-							<?php endforeach ?>
+
+                        <a class="arrow-left" href="#"></a>
+                        <a class="arrow-right" href="#"></a>
+                        <div class="highlights-wrapper swiper-container">
+                            <div class="swiper-wrapper">
+                                <?php for($i=0;$i<2 & count($row->highlights)>$i*3;$i++): ?>
+                                <div class="swiper-slide">
+                                    <?php for($j=0;$j<3 & count($row->highlights)>$i*3+$j;$j++): ?>
+										<?php $highlight=$row->highlights[$i*3+$j]?>
+										<div class="highlights-item" data-description="<?php echo htmlspecialchars($highlight["description"], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($highlight["to_vid"], ENT_QUOTES);?>" data-name="<?php echo htmlspecialchars($highlight["name"], ENT_QUOTES);?>" data-image="<?php echo htmlspecialchars($highlight["img_url"], ENT_QUOTES);?>">
+											<div class="high-img" style="background-image: url('<?php echo $highlight["img_url"]; ?>')"></div>
+											<div class="high-title"><?php echo $highlight["name"]; ?></div>
+										</div>
+                                    <?php endfor ?>
+                                </div>
+                                <?php endfor ?>
+                            </div>
+                            <div class="pagination"></div>
                         </div>
                         <?php /* if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
                         <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"><span>Trailer</span></div>
