@@ -1,14 +1,9 @@
 <?php
     
-    $dbname = "wikidots";
-    $host = "82.80.210.144";  
-    $user = "wikidots";
-    $pass = "wagoiplrkyjdnvtxemcq"; 
-    $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    
-	$statement = $db->prepare("SELECT `value`.* FROM `front` join `value` on `value`.`valueID`= `front`.`valueID` ORDER BY `order` limit 8");
-    $statement->execute();
-    $homeValue = $statement->fetchAll(PDO::FETCH_ASSOC);
+    include_once("dataLayer/wikidotValue.php");
+	$wikidotValue=new WikidotValue();
+
+    $homeValue = $wikidotValue->get_front_highlights();
 	
 ?>
 <!DOCTYPE html>
@@ -19,15 +14,13 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script>
-            <?php
-                $statement = $db->prepare("select `valueName`,`valueID` from value");
-                $statement->execute();
-                $table = $statement->fetchAll(PDO::FETCH_ASSOC);
-                echo "var values=".json_encode($table).";";
+			var values=[];
+            <?php 
+				echo "values=".json_encode($wikidotValue->get_value_list()).";";
             ?>
-            var valuesName=[];
+			var valuesName=[];
             values.forEach(function(element){
-                valuesName.push(element.valueName);
+                valuesName.push(element.title);
             });
         </script>
         <script src="script.js"></script>
@@ -104,9 +97,9 @@
                     <div class="top-dots-list">
 						<?php foreach ( $homeValue as  $value ): ?>
 							<div class="top-dot-item">
-								<div class="highlights-item" data-id="<?php echo $value["valueID"]?> ">
-									<div class="high-img" style="background-image: url('<?php echo $value["imgUrl"]?>')"></div>
-									<div class="high-title"><?php echo $value["valueName"]?></div>
+								<div class="highlights-item" data-id="<?php echo $value["id"]?> ">
+									<div class="high-img" style="background-image: url('<?php echo $value["img_url"]?>')"></div>
+									<div class="high-title"><?php echo $value["title"]?></div>
 								</div>
 							</div>
 						<?php endforeach ?>

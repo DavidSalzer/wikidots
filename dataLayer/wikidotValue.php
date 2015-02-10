@@ -37,8 +37,8 @@ class WikidotValue{
 	}
 	
 	function saveData($obj){
-		$statement = $this->db->prepare("INSERT INTO `values` (`id`, `title`, `synopsis`, `img_url`) VALUES (:id, :title, :synopsis, :img_url)");
-		$statement->execute(array('id' => $obj->id, 'title' => $obj->title, 'synopsis' => $obj->synopsis, 'img_url' => $obj->img_url ));
+		$statement = $this->db->prepare("INSERT INTO `values` (`id`, `title`,`description`, `synopsis`, `img_url`) VALUES (:id, :title, :description, :synopsis, :img_url)");
+		$statement->execute(array('id' => $obj->id, 'title' => $obj->title, 'description' => $obj->description, 'synopsis' => $obj->synopsis, 'img_url' => $obj->img_url ));
 		foreach($obj->events as $event){
 			$statement = $this->db->prepare("INSERT INTO `event` (`vid`, `year`, `text`) VALUES (:vid, :year, :text)");
 			$statement->execute(array('vid' => $obj->id, 'year' => $event->year, 'text' => $event->text));
@@ -54,12 +54,19 @@ class WikidotValue{
 	}
 	
 	function get_front_highlights(){
-		$statement = $db->prepare("SELECT `values`.* FROM `front` join `values` on `values`.`id`= `front`.`valueID` ORDER BY `order` limit 8");
+		$statement = $this->db->prepare("SELECT `values`.* FROM `front` join `values` on `values`.`id`= `front`.`valueID` ORDER BY `order` limit 8");
 		$statement->execute();
-		$homeValue = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
+	function get_value_list(){
+		$statement = $this->db->prepare("select `title`,`id` from `values`");
+		$statement->execute();
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	function importValue($value_id){
+		set_time_limit ( 200);
 		$res=new stdClass();
 		$json = file_get_contents('http://en.wikipedia.org/w/api.php?action=parse&page='.$value_id.'&format=json');
 		$wikipediaData = json_decode($json);
@@ -167,7 +174,7 @@ class WikidotValue{
 		$res->highlights=array();
 		foreach($highlights as $key => $value){
 			foreach($sentences as $sentence){
-				if (strpos($sentence, $value ) !== false){
+				if (!empty($value) && strpos($sentence, $value ) !== false){
 					$highlight=new stdClass();
 					$highlight->value=$key;
 					$highlight->name=$value;

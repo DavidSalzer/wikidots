@@ -1,39 +1,23 @@
 <?php
-    $valueID = isset($_GET['id'])?$_GET['id']:"";
-    
-    $dbname = "wikidots";
-    $host = "82.80.210.144";  
-    $user = "wikidots";
-    $pass = "wagoiplrkyjdnvtxemcq"; 
-    $db = new PDO('mysql:dbname='.$dbname.';host='.$host, $user, $pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-    $statement = $db->prepare("select * from value where valueID = :valueID");
-    $statement->execute(array(':valueID' => $valueID));
-    $row = $statement->fetch(PDO::FETCH_ASSOC); // Use fetchAll() if you want all results, or just iterate over the statement, since it implements Iterator
+    include_once("dataLayer/wikidotValue.php");
+	$wikidotValue=new WikidotValue();
+	$valueID = isset($_GET['id'])?$_GET['id']:"";
+
+	$row =  $wikidotValue->getValue($valueID);
     
     if ($row==null){
         header("Location: homepage.php");
         die();
     }
-    
-    function has_value($valueID){
-        global $db;
-        $statement = $db->prepare("select * from value where valueID = :valueID");
-        $statement->execute(array(':valueID' => $valueID));
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
-        return $row!=null;
-    }
-    
-    //print_r($row);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta property="og:title" content="<?php echo $row["valueName"]; ?>" />
+        <meta property="og:title" content="<?php echo $row->title; ?>" />
         <meta property="og:site_name" content="wikidocs" />
-        <meta property="og:description" content="<?php echo $row["synopsis"]; ?> /">
-        <meta property="og:image" content="<?php echo $row["imgUrl"]; ?>" />
+        <meta property="og:description" content="<?php echo $row->synopsis; ?> /">
+        <meta property="og:image" content="<?php echo $row->img_url; ?>" />
         <meta property="og:locale" content="en_US" />
         <title>Wikidots</title>
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
@@ -44,15 +28,13 @@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script src="touch.timeline/touch.timeline.js"></script>
         <script>
-            <?php
-                $statement = $db->prepare("select `valueName`,`valueID` from value");
-                $statement->execute();
-                $table = $statement->fetchAll(PDO::FETCH_ASSOC);
-                echo "var values=".json_encode($table).";";
+			var values=[];
+            <?php 
+				//echo "values=".json_encode($wikidotValue->get_value_list()).";";
             ?>
-            var valuesName=[];
+			var valuesName=[];
             values.forEach(function(element){
-                valuesName.push(element.valueName);
+                valuesName.push(element.title);
             });
         </script>
 
@@ -61,22 +43,6 @@
 
         <!-- Google Analytics -->
         <script type="text/javascript">
-
-
-
-
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-57534000-1']);
             _gaq.push(['_trackPageview']);
@@ -159,15 +125,15 @@
             </div>
         </div>
 
-        <div class="main-background"><img src="<?php echo $row["imgUrl"]; ?>"></div>
+        <div class="main-background"><img src="<?php echo $row->img_url; ?>"></div>
         <div id="mainMask"></div>
         <div class="main-wrapper">
             <header>
                 <div class="logo"><a href="homepage.php" class="logo-ref"></a></div>
-                <a href="http://en.wikipedia.org/wiki/<?php echo $row["valueID"]; ?>" class="wikipedia_button" target="_blank"><img src="images/wikipedia_button.png" /></a>
+                <a href="http://en.wikipedia.org/wiki/<?php echo $row->id; ?>" class="wikipedia_button" target="_blank"><img src="images/wikipedia_button.png" /></a>
                 <div class="menu edit" onclick="showEdit()"></div>
                 <div class="share-wrapper">
-                    <div class="fb-share-button" data-href="http://wikidots.com?id=<?php echo $row["valueID"]; ?>" data-layout="button"></div>
+                    <div class="fb-share-button" data-href="http://wikidots.com?id=<?php echo $row->id; ?>" data-layout="button"></div>
                 </div>
             </header>
             <div class="main-data-wrapper">
@@ -175,7 +141,7 @@
                     <div class="main-data">
                         <div class="back-button" style="display: none;"></div>
                         <div class="synopsis">
-                            <div class="syn-text"><?php echo $row["synopsis"]; ?></div>
+                            <div class="syn-text"><?php echo $row->synopsis; ?></div>
                             <div class="highlights-text"></div>
                             <a class="learn-more">
                                 <div class="arrow"></div>
@@ -184,18 +150,16 @@
                             </a>
                         </div>
                         <div class="highlights-wrapper">
-                            <?php for($i=1;$i<=7;$i++): ?>
-                            <?php if ($row["p_name".$i]!=null & $row["p_name".$i]!=""): ?>
-                            <div class="highlights-item" data-description="<?php echo htmlspecialchars($row["p_description".$i], ENT_QUOTES);?>" data-id="<?php echo has_value($row["p_valueID".$i])?htmlspecialchars($row["p_valueID".$i], ENT_QUOTES):'';?>" data-name="<?php echo htmlspecialchars($row["p_name".$i], ENT_QUOTES);?>" data-image="<?php echo htmlspecialchars($row["p_image_url".$i], ENT_QUOTES);?>">
-                                <div class="high-img" style="background-image: url('<?php echo $row["p_image_url".$i]; ?>')"></div>
-                                <div class="high-title"><?php echo $row["p_name".$i]; ?></div>
-                            </div>
-                            <?php endif ?>
-                            <?php endfor ?>
+							<?php foreach($row->highlights as $highlight): ?>
+								<div class="highlights-item" data-description="<?php echo htmlspecialchars($highlight["description"], ENT_QUOTES);?>" data-id="<?php echo htmlspecialchars($highlight["to_vid"], ENT_QUOTES);?>" data-name="<?php echo htmlspecialchars($highlight["name"], ENT_QUOTES);?>" data-image="<?php echo htmlspecialchars($highlight["img_url"], ENT_QUOTES);?>">
+									<div class="high-img" style="background-image: url('<?php echo $highlight["img_url"]; ?>')"></div>
+									<div class="high-title"><?php echo $highlight["name"]; ?></div>
+								</div>
+							<?php endforeach ?>
                         </div>
-                        <?php if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
+                        <?php /* if ($row["videoUrl"] != NULL && $row["videoUrl"] != '' ): ?>
                         <div class="play" vidio-url="<?php echo $row["videoUrl"];?>"><span>Trailer</span></div>
-                        <?php endif?>
+                        <?php endif */ ?>
                     </div>
                 </div>
                 <div class="touch-wrapper">
@@ -207,39 +171,27 @@
             </div>
             <div class="footer">
                 <div class="main-data-footer">
-                    <div class="value-name"><?php echo $row["valueName"]; ?>
+                    <div class="value-name"><?php echo $row->title; ?>
                     </div>
-                    <div class="desc-name"><?php echo $row["Description"]; ?></div>
+                    <div class="desc-name"><?php echo $row->description; ?></div>
                 </div>
 
 
                 <?php
-                    $start= $row["start"]; 
-                    $end= $row["end"]; 
-                    $importantDate= $row["ImportantDate"]; 
-                    $now=2015;
+                    $start= $row->event[0]["year"]; 
+                    $end=$row->event[count($row->event)-1]["year"]; 
+                    $now= $end;
                 ?>
                 <div id="slide-wrap">
                     <div class="timeline-wrap" data-start-time="<?php echo  $start?>" data-end-time="<?php echo  $now?>" data-last-time="<?php echo  $end?>">
-
-                        <div class="timeline-event" data-time="<?php echo  $start?>">
-                            <div class="timeline-title"><?php echo  $start?></div>
-                            <div class="timeline-content">
-                                <p><?php echo $row["start_text"]; ?></p>
-                            </div>
-                        </div>
-                        <div class="timeline-event" data-time="<?php echo  $importantDate?>">
-                            <div class="timeline-title"><?php echo  $importantDate?></div>
-                            <div class="timeline-content">
-                                <p><?php echo $row["importantDate_taxt"]; ?></p>
-                            </div>
-                        </div>
-                        <div class="timeline-event" data-time="<?php echo  $end?>">
-                            <div class="timeline-title"><?php echo  $end?></div>
-                            <div class="timeline-content">
-                                <p><?php echo $row["end_text"]; ?></p>
-                            </div>
-                        </div>
+						<?php foreach($row->event as $event): ?>
+							<div class="timeline-event" data-time="<?php echo  $event["year"]?>">
+								<div class="timeline-title"><?php echo  $event["year"]?></div>
+								<div class="timeline-content">
+									<p><?php echo $event["text"]; ?></p>
+								</div>
+							</div>
+						<?php endforeach ?>
 
                         <div id="timeline-event-node-wrap">
                             <div class="timeline-event-node"></div>
